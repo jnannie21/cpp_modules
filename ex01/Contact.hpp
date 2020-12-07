@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 13:52:56 by jnannie           #+#    #+#             */
-/*   Updated: 2020/12/05 19:31:03 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/12/07 21:39:15 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 
 class	Contact {
 public:
-	// Contact(void);
-	// ~Contact(void);
 	static int			getN(void);
 	static void			increaseN(void);
 

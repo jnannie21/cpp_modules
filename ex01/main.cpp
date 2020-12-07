@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 10:12:49 by jnannie           #+#    #+#             */
-/*   Updated: 2020/12/05 21:51:38 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/12/07 21:40:40 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,29 +18,44 @@
 #define MAX_NUMBER_OF_CONTACTS 8
 #define COLUMN_WIDTH 10
 
+void	check_input_for_errors(void)
+{
+	if (std::cin.fail() || std::cin.eof())
+	{
+		std::cerr << std::endl << "input error" << std::endl;
+		exit(1);
+	}
+}
+
+void	get_line_safe(std::string &str)
+{
+	std::getline(std::cin, str);
+	check_input_for_errors();
+}
+
 void	enter_contact(Contact *contact) {
 	std::cout << "enter first name: ";
-	std::getline(std::cin, contact->first_name);
+	get_line_safe(contact->first_name);
 	std::cout << "enter last name: ";
-	std::getline(std::cin, contact->last_name);
+	get_line_safe(contact->last_name);
 	std::cout << "enter nickname: ";
-	std::getline(std::cin, contact->nickname);
+	get_line_safe(contact->nickname);
 	std::cout << "enter login: ";
-	std::getline(std::cin, contact->login);
+	get_line_safe(contact->login);
 	std::cout << "enter postal address: ";
-	std::getline(std::cin, contact->postal_address);
+	get_line_safe(contact->postal_address);
 	std::cout << "enter email address: ";
-	std::getline(std::cin, contact->email_address);
+	get_line_safe(contact->email_address);
 	std::cout << "enter phone number: ";
-	std::getline(std::cin, contact->phone_number);
+	get_line_safe(contact->phone_number);
 	std::cout << "enter birthday date: ";
-	std::getline(std::cin, contact->birthday_date);
+	get_line_safe(contact->birthday_date);
 	std::cout << "enter favorite meal: ";
-	std::getline(std::cin, contact->favorite_meal);
+	get_line_safe(contact->favorite_meal);
 	std::cout << "enter underwear color: ";
-	std::getline(std::cin, contact->underwear_color);
+	get_line_safe(contact->underwear_color);
 	std::cout << "enter darkest secret: ";
-	std::getline(std::cin, contact->darkest_secret);
+	get_line_safe(contact->darkest_secret);
 }
 
 void	print_contact(Contact *contact) {
@@ -81,15 +96,15 @@ std::string		format_entry(std::string entry)
 	return (formatted_entry);
 }
 
-void	print_preview_contacts(Contact *contact) {
+void	print_preview_of_contacts(Contact *contact) {
 	int				i = 0;
 
 	while (i < Contact::getN())
 	{
-		std::cout << std::setw(COLUMN_WIDTH + 1) << i << "|";
-		std::cout << std::setw(COLUMN_WIDTH + 1) << format_entry(contact[i].first_name) << "|";
-		std::cout << std::setw(COLUMN_WIDTH + 1) << format_entry(contact[i].last_name) << "|";
-		std::cout << std::setw(COLUMN_WIDTH + 1) << format_entry(contact[i].nickname) << "|";
+		std::cout << std::setw(COLUMN_WIDTH) << i << "|";
+		std::cout << std::setw(COLUMN_WIDTH) << format_entry(contact[i].first_name) << "|";
+		std::cout << std::setw(COLUMN_WIDTH) << format_entry(contact[i].last_name) << "|";
+		std::cout << std::setw(COLUMN_WIDTH) << format_entry(contact[i].nickname);
 		std::cout << std::endl;
 		i++;
 	}
@@ -117,11 +132,13 @@ void	search_contact(Contact *contacts)
 	std::cout << std::setw(10) << "nickname" << std::endl;
 	if (Contact::getN() > 0)
 	{
-		print_preview_contacts(contacts);
+		print_preview_of_contacts(contacts);
 		while (1)
 		{
 			std::cout << "enter index of the available entry[0, " << Contact::getN() - 1 << "]: ";
 			std::cin >> index;
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			check_input_for_errors();
 			if (index < 0 || index >= Contact::getN())
 				std::cout << "wrong index(must be in interval [0, " << Contact::getN() - 1 << "])" << std::endl;
 			else
@@ -138,13 +155,11 @@ void	search_contact(Contact *contacts)
 int		main(void) {
 	Contact			contacts[MAX_NUMBER_OF_CONTACTS];
 	std::string		command;
-	// int				index;
 
 	while (1)
 	{
-		std::cout << "Please, enter command: ";
-		std::cin >> command;
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << "Please, enter command and press enter: ";
+		get_line_safe(command);
 		if (command == "EXIT")
 			break ;
 		else if (command == "ADD")
