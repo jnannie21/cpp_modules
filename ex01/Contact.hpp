@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 13:52:56 by jnannie           #+#    #+#             */
-/*   Updated: 2020/12/09 16:24:21 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/12/09 17:16:11 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PHONEBOOK_HPP
 
 # include <string>
-// #include <iostream>
 
 class	Contact {
 public:
