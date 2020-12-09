@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 10:12:49 by jnannie           #+#    #+#             */
-/*   Updated: 2020/12/07 21:40:40 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/12/08 21:49:05 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,52 +35,52 @@ void	get_line_safe(std::string &str)
 
 void	enter_contact(Contact *contact) {
 	std::cout << "enter first name: ";
-	get_line_safe(contact->first_name);
+	get_line_safe(contact->getFirstName());
 	std::cout << "enter last name: ";
-	get_line_safe(contact->last_name);
+	get_line_safe(contact->getLastName());
 	std::cout << "enter nickname: ";
-	get_line_safe(contact->nickname);
+	get_line_safe(contact->getNickname());
 	std::cout << "enter login: ";
-	get_line_safe(contact->login);
+	get_line_safe(contact->getLogin());
 	std::cout << "enter postal address: ";
-	get_line_safe(contact->postal_address);
+	get_line_safe(contact->getPostalAddress());
 	std::cout << "enter email address: ";
-	get_line_safe(contact->email_address);
+	get_line_safe(contact->getEmailAddress());
 	std::cout << "enter phone number: ";
-	get_line_safe(contact->phone_number);
+	get_line_safe(contact->getPhoneNumber());
 	std::cout << "enter birthday date: ";
-	get_line_safe(contact->birthday_date);
+	get_line_safe(contact->getBirthdayDate());
 	std::cout << "enter favorite meal: ";
-	get_line_safe(contact->favorite_meal);
+	get_line_safe(contact->getFavoriteMeal());
 	std::cout << "enter underwear color: ";
-	get_line_safe(contact->underwear_color);
+	get_line_safe(contact->getUnderwearColor());
 	std::cout << "enter darkest secret: ";
-	get_line_safe(contact->darkest_secret);
+	get_line_safe(contact->getDarkestSecret());
 }
 
 void	print_contact(Contact *contact) {
 	std::cout <<  "first name: ";
-	std::cout << contact->first_name << std::endl;
+	std::cout << contact->getFirstName() << std::endl;
 	std::cout << "last name: ";
-	std::cout << contact->last_name << std::endl;
+	std::cout << contact->getLastName() << std::endl;
 	std::cout << "nickname: ";
-	std::cout << contact->nickname << std::endl;
+	std::cout << contact->getNickname() << std::endl;
 	std::cout << "login: ";
-	std::cout << contact->login << std::endl;
+	std::cout << contact->getLogin() << std::endl;
 	std::cout << "postal address: ";
-	std::cout << contact->postal_address << std::endl;
+	std::cout << contact->getPostalAddress() << std::endl;
 	std::cout << "email address: ";
-	std::cout << contact->email_address << std::endl;
+	std::cout << contact->getEmailAddress() << std::endl;
 	std::cout << "phone number: ";
-	std::cout << contact->phone_number << std::endl;
+	std::cout << contact->getPhoneNumber() << std::endl;
 	std::cout << "birthday date: ";
-	std::cout << contact->birthday_date << std::endl;
+	std::cout << contact->getBirthdayDate() << std::endl;
 	std::cout << "favorite meal: ";
-	std::cout << contact->favorite_meal << std::endl;
+	std::cout << contact->getFavoriteMeal() << std::endl;
 	std::cout << "underwear color: ";
-	std::cout << contact->underwear_color << std::endl;
+	std::cout << contact->getUnderwearColor() << std::endl;
 	std::cout << "darkest secret: ";
-	std::cout << contact->darkest_secret << std::endl;
+	std::cout << contact->getDarkestSecret() << std::endl;
 }
 
 std::string		format_entry(std::string entry)
@@ -102,9 +102,9 @@ void	print_preview_of_contacts(Contact *contact) {
 	while (i < Contact::getN())
 	{
 		std::cout << std::setw(COLUMN_WIDTH) << i << "|";
-		std::cout << std::setw(COLUMN_WIDTH) << format_entry(contact[i].first_name) << "|";
-		std::cout << std::setw(COLUMN_WIDTH) << format_entry(contact[i].last_name) << "|";
-		std::cout << std::setw(COLUMN_WIDTH) << format_entry(contact[i].nickname);
+		std::cout << std::setw(COLUMN_WIDTH) << format_entry(contact[i].getFirstName()) << "|";
+		std::cout << std::setw(COLUMN_WIDTH) << format_entry(contact[i].getLastName()) << "|";
+		std::cout << std::setw(COLUMN_WIDTH) << format_entry(contact[i].getNickname());
 		std::cout << std::endl;
 		i++;
 	}
