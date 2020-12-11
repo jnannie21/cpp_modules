@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 13:52:56 by jnannie           #+#    #+#             */
-/*   Updated: 2020/12/09 17:16:11 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/12/11 21:35:54 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,38 +17,34 @@
 
 class	Contact {
 public:
-	Contact() {};
-	~Contact() {};
+	Contact();
+	~Contact();
 
-	std::string		&getFirstName(void);
-	std::string		&getLastName(void);
-	std::string		&getNickname(void);
-	std::string		&getLogin(void);
-	std::string		&getPostalAddress(void);
-	std::string		&getEmailAddress(void);
-	std::string		&getPhoneNumber(void);
-	std::string		&getBirthdayDate(void);
-	std::string		&getFavoriteMeal(void);
-	std::string		&getUnderwearColor(void);
-	std::string		&getDarkestSecret(void);
+	enum {
+					fieldFirstName,
+					fieldLastName,
+					fieldNickname,
+					fieldLogin,
+					fieldPostalAddress,
+					fieldEmailAddress,
+					fieldPhoneNumber,
+					fieldBirthdayDate,
+					fieldFavoriteMeal,
+					fieldUnderwearColor,
+					fieldDarkestSecret
+	};
 
+	std::string		getField(int fieldNumber) const;
+	void			setField(int fieldNumber, std::string field);
 	static int		getN(void);
 	static void		increaseN(void);
+	int				isEmpty();
 
 private:
-	std::string		firstName;
-	std::string		lastName;
-	std::string		nickname;
-	std::string		login;
-	std::string		postalAddress;
-	std::string		emailAddress;
-	std::string		phoneNumber;
-	std::string		birthdayDate;
-	std::string		favoriteMeal;
-	std::string		underwearColor;
-	std::string		darkestSecret;
+	std::string		_fields[11];
+	int				_isEmpty;
 
 	static int		_n;
 };
 
-#endif // PHONEBOOK_HPP
+#endif

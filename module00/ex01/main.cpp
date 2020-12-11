@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 10:12:49 by jnannie           #+#    #+#             */
-/*   Updated: 2020/12/08 21:49:05 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/12/11 22:40:23 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,69 +18,67 @@
 #define MAX_NUMBER_OF_CONTACTS 8
 #define COLUMN_WIDTH 10
 
-void	check_input_for_errors(void)
+std::string	get_line_safe(void)
 {
-	if (std::cin.fail() || std::cin.eof())
+	std::string		str;
+
+	std::getline(std::cin, str);
+	if (std::cin.eof())
 	{
-		std::cerr << std::endl << "input error" << std::endl;
+		std::cout << std::endl << "eof was reached. exiting." << std::endl;
 		exit(1);
 	}
-}
-
-void	get_line_safe(std::string &str)
-{
-	std::getline(std::cin, str);
-	check_input_for_errors();
+	return (str);
 }
 
 void	enter_contact(Contact *contact) {
 	std::cout << "enter first name: ";
-	get_line_safe(contact->getFirstName());
+	contact->setField(Contact::fieldFirstName, get_line_safe());
 	std::cout << "enter last name: ";
-	get_line_safe(contact->getLastName());
+	contact->setField(Contact::fieldLastName, get_line_safe());
 	std::cout << "enter nickname: ";
-	get_line_safe(contact->getNickname());
+	contact->setField(Contact::fieldNickname, get_line_safe());
 	std::cout << "enter login: ";
-	get_line_safe(contact->getLogin());
+	contact->setField(Contact::fieldLogin, get_line_safe());
 	std::cout << "enter postal address: ";
-	get_line_safe(contact->getPostalAddress());
+	contact->setField(Contact::fieldPostalAddress, get_line_safe());
 	std::cout << "enter email address: ";
-	get_line_safe(contact->getEmailAddress());
+	contact->setField(Contact::fieldEmailAddress, get_line_safe());
 	std::cout << "enter phone number: ";
-	get_line_safe(contact->getPhoneNumber());
+	contact->setField(Contact::fieldPhoneNumber, get_line_safe());
 	std::cout << "enter birthday date: ";
-	get_line_safe(contact->getBirthdayDate());
+	contact->setField(Contact::fieldBirthdayDate, get_line_safe());
 	std::cout << "enter favorite meal: ";
-	get_line_safe(contact->getFavoriteMeal());
+	contact->setField(Contact::fieldFavoriteMeal, get_line_safe());
 	std::cout << "enter underwear color: ";
-	get_line_safe(contact->getUnderwearColor());
+	contact->setField(Contact::fieldUnderwearColor, get_line_safe());
 	std::cout << "enter darkest secret: ";
-	get_line_safe(contact->getDarkestSecret());
+	contact->setField(Contact::fieldDarkestSecret, get_line_safe());
 }
 
 void	print_contact(Contact *contact) {
 	std::cout <<  "first name: ";
-	std::cout << contact->getFirstName() << std::endl;
+	std::cout << contact->getField(Contact::fieldFirstName) << std::endl;
 	std::cout << "last name: ";
-	std::cout << contact->getLastName() << std::endl;
+	std::cout << contact->getField(Contact::fieldLastName) << std::endl;
 	std::cout << "nickname: ";
-	std::cout << contact->getNickname() << std::endl;
+	std::cout << contact->getField(Contact::fieldNickname) << std::endl;
 	std::cout << "login: ";
-	std::cout << contact->getLogin() << std::endl;
+	std::cout << contact->getField(Contact::fieldLogin) << std::endl;
 	std::cout << "postal address: ";
-	std::cout << contact->getPostalAddress() << std::endl;
+	std::cout << contact->getField(Contact::fieldPostalAddress) << std::endl;
 	std::cout << "email address: ";
-	std::cout << contact->getEmailAddress() << std::endl;
+	std::cout << contact->getField(Contact::fieldEmailAddress) << std::endl;
 	std::cout << "phone number: ";
-	std::cout << contact->getPhoneNumber() << std::endl;
+	std::cout << contact->getField(Contact::fieldPhoneNumber) << std::endl;
 	std::cout << "birthday date: ";
-	std::cout << contact->getBirthdayDate() << std::endl;
+	std::cout << contact->getField(Contact::fieldBirthdayDate) << std::endl;
 	std::cout << "favorite meal: ";
-	std::cout << contact->getFavoriteMeal() << std::endl;
+	std::cout << contact->getField(Contact::fieldFavoriteMeal) << std::endl;
 	std::cout << "underwear color: ";
-	std::cout << contact->getUnderwearColor() << std::endl;
+	std::cout << contact->getField(Contact::fieldUnderwearColor) << std::endl;
 	std::cout << "darkest secret: ";
-	std::cout << contact->getDarkestSecret() << std::endl;
+	std::cout << contact->getField(Contact::fieldDarkestSecret) << std::endl;
 }
 
 std::string		format_entry(std::string entry)
@@ -101,11 +99,14 @@ void	print_preview_of_contacts(Contact *contact) {
 
 	while (i < Contact::getN())
 	{
-		std::cout << std::setw(COLUMN_WIDTH) << i << "|";
-		std::cout << std::setw(COLUMN_WIDTH) << format_entry(contact[i].getFirstName()) << "|";
-		std::cout << std::setw(COLUMN_WIDTH) << format_entry(contact[i].getLastName()) << "|";
-		std::cout << std::setw(COLUMN_WIDTH) << format_entry(contact[i].getNickname());
-		std::cout << std::endl;
+		if (!(contact[i].isEmpty()))
+		{
+			std::cout << std::setw(COLUMN_WIDTH) << i << "|";
+			std::cout << std::setw(COLUMN_WIDTH) << format_entry(contact[i].getField(Contact::fieldFirstName)) << "|";
+			std::cout << std::setw(COLUMN_WIDTH) << format_entry(contact[i].getField(Contact::fieldLastName)) << "|";
+			std::cout << std::setw(COLUMN_WIDTH) << format_entry(contact[i].getField(Contact::fieldNickname));
+			std::cout << std::endl;
+		}
 		i++;
 	}
 }
@@ -121,29 +122,37 @@ void	add_contact(Contact *contacts)
 		std::cout << "you can't add more than 8 contacts" << std::endl;
 }
 
+int		get_index(std::string str)
+{
+	if (str.length() == 0 || str.length() > 1 || str[0] < 48 || str[0] > 57)
+		return (-1);
+	return (str[0] - 48);
+}
+
 void	search_contact(Contact *contacts)
 {
 	int		index;
 
-	std::cout << "available contacts:" << std::endl;
-	std::cout << std::setw(10) << "index" << "|";
-	std::cout << std::setw(10) << "first name" << "|";
-	std::cout << std::setw(10) << "last name" << "|";
-	std::cout << std::setw(10) << "nickname" << std::endl;
 	if (Contact::getN() > 0)
 	{
+		std::cout << "available contacts:" << std::endl;
+		std::cout << std::setw(10) << "index" << "|";
+		std::cout << std::setw(10) << "first name" << "|";
+		std::cout << std::setw(10) << "last name" << "|";
+		std::cout << std::setw(10) << "nickname" << std::endl;
 		print_preview_of_contacts(contacts);
 		while (1)
 		{
 			std::cout << "enter index of the available entry[0, " << Contact::getN() - 1 << "]: ";
-			std::cin >> index;
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			check_input_for_errors();
+			index = get_index(get_line_safe());
 			if (index < 0 || index >= Contact::getN())
 				std::cout << "wrong index(must be in interval [0, " << Contact::getN() - 1 << "])" << std::endl;
 			else
 			{
-				print_contact(contacts + index);
+				if (contacts[index].isEmpty())
+					std::cout << "contact[" << index << "]" << "is empty." << std::endl;
+				else
+					print_contact(&contacts[index]);
 				break ;
 			}
 		}
@@ -159,7 +168,7 @@ int		main(void) {
 	while (1)
 	{
 		std::cout << "Please, enter command and press enter: ";
-		get_line_safe(command);
+		command = get_line_safe();
 		if (command == "EXIT")
 			break ;
 		else if (command == "ADD")
