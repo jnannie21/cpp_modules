@@ -1,50 +1,41 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/03 13:52:56 by jnannie           #+#    #+#             */
-/*   Updated: 2020/12/11 21:35:54 by jnannie          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+//
+// Created by Johnette Nannie on 12/12/20.
+//
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
 # include <string>
 
 class	Contact {
 public:
-	Contact();
-	~Contact();
+						Contact(void);
+						~Contact(void);
 
 	enum {
-					fieldFirstName,
-					fieldLastName,
-					fieldNickname,
-					fieldLogin,
-					fieldPostalAddress,
-					fieldEmailAddress,
-					fieldPhoneNumber,
-					fieldBirthdayDate,
-					fieldFavoriteMeal,
-					fieldUnderwearColor,
-					fieldDarkestSecret
+						FIRST_NAME,
+						LAST_NAME,
+						NICKNAME,
+						LOGIN,
+						POSTAL_ADDRESS,
+						EMAIL_ADDRESS,
+						PHONE_NUMBER,
+						BIRTHDAY_DATE,
+						FAVORITE_MEAL,
+						UNDERWEAR_COLOR,
+						DARKEST_SECRET,
+//						NUMBER_OF_FIELDS
 	};
 
-	std::string		getField(int fieldNumber) const;
-	void			setField(int fieldNumber, std::string field);
-	static int		getN(void);
-	static void		increaseN(void);
-	int				isEmpty();
+	std::string			getField(int fieldNumber) const;
+	void				setField(int fieldNumber, std::string field);
+	int					isEmpty(void) const;
+	void				enterContact(void);
+	void				printContact(void) const;
 
 private:
-	std::string		_fields[11];
-	int				_isEmpty;
-
-	static int		_n;
+	std::string			_fields[11];
+	int					_isEmpty;
 };
 
-#endif
+#endif //CONTACT_HPP
