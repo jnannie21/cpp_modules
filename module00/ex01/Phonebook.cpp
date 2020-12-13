@@ -6,24 +6,22 @@
 #include <iostream>
 #include <iomanip>
 
-int	Phonebook::_n = 0;
-
-Phonebook::Phonebook(void) {}
+Phonebook::Phonebook(void) : _n(0){}
 
 Phonebook::~Phonebook(void) {}
 
-int			Phonebook::getN(void) {
-	return (Phonebook::_n);
+int			Phonebook::getN(void) const {
+	return (this->_n);
 }
 
 void		Phonebook::increaseN(void) {
-	Phonebook::_n++;
+	this->_n++;
 }
 
 void		Phonebook::addContact(void) {
-	if (Phonebook::getN() < 8)
+	if (this->getN() < 8)
 	{
-		this->_contacts[Phonebook::getN()].enterContact();
+		this->_contacts[this->getN()].enterContact();
 		this->increaseN();
 	}
 	else
@@ -42,7 +40,7 @@ std::string	Phonebook::formatField(std::string field) const {
 void		Phonebook::printPreviewOfContacts(void) const {
 	int			i = 0;
 
-	while (i < Phonebook::getN())
+	while (i < this->getN())
 	{
 		if (!(this->_contacts[i].isEmpty()))
 		{
@@ -68,7 +66,7 @@ int			Phonebook::getIndex(void) const {
 void		Phonebook::searchContact(void) const {
 	int		index;
 
-	if (Phonebook::getN() > 0)
+	if (this->getN() > 0)
 	{
 		std::cout << "available non-empty contacts:" << std::endl;
 		std::cout << std::setw(10) << "index" << "|";
@@ -78,14 +76,14 @@ void		Phonebook::searchContact(void) const {
 		this->printPreviewOfContacts();
 		while (1)
 		{
-			std::cout << "enter index of the available entry[0, " << Phonebook::getN() - 1 << "]: ";
+			std::cout << "enter index of the available entry[0, " << this->getN() - 1 << "]: ";
 			index = this->getIndex();
 			if (std::cin.eof())
 				return ;
 			if (index < 0)
 				std::cout << "invalid index(must be positive number)." << std::endl;
-			else if (index >= Phonebook::getN())
-				std::cout << "wrong index(must be in interval [0, " << Phonebook::getN() - 1 << "])." << std::endl;
+			else if (index >= this->getN())
+				std::cout << "wrong index(must be in interval [0, " << this->getN() - 1 << "])." << std::endl;
 			else
 			{
 				this->_contacts[index].printContact();

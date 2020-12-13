@@ -21,12 +21,11 @@ public:
 	void				searchContact(void) const;
 	void 				execute(void);
 
-	static int			getN(void);
-
 private:
 	Contact				_contacts[MAX_NUMBER_OF_CONTACTS];
-	static int			_n;
+	int					_n;
 
+	int					getN(void) const;
 	void				increaseN(void);
 	int					getIndex(void) const;
 	std::string			formatField(std::string field) const;
