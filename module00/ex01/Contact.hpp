@@ -9,22 +9,24 @@
 
 class	Contact {
 public:
-						Contact(void);
-						~Contact(void);
+	Contact(void);
+	~Contact(void);
+
+	static std::string const	FIELDS_NAMES[];
 
 	enum {
-						FIRST_NAME,
-						LAST_NAME,
-						NICKNAME,
-						LOGIN,
-						POSTAL_ADDRESS,
-						EMAIL_ADDRESS,
-						PHONE_NUMBER,
-						BIRTHDAY_DATE,
-						FAVORITE_MEAL,
-						UNDERWEAR_COLOR,
-						DARKEST_SECRET,
-//						NUMBER_OF_FIELDS
+		FIRST_NAME,
+		LAST_NAME,
+		NICKNAME,
+		LOGIN,
+		POSTAL_ADDRESS,
+		EMAIL_ADDRESS,
+		PHONE_NUMBER,
+		BIRTHDAY_DATE,
+		FAVORITE_MEAL,
+		UNDERWEAR_COLOR,
+		DARKEST_SECRET,
+		NUMBER_OF_FIELDS
 	};
 
 	std::string			getField(int fieldNumber) const;

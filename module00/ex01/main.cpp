@@ -5,7 +5,7 @@
 #include "Phonebook.hpp"
 
 int		main(void) {
-	Phonebook		phonebook;
+	Phonebook	phonebook;
 
 	phonebook.execute();
 	return (0);

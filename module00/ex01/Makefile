@@ -1,7 +1,7 @@
 CC = clang++
 CFLAGS = -c -Wall -Wextra -Werror -std=c++98
-MAIN_SOURCES =	main.cpp Contact.cpp Phonebook.cpp Common.cpp
-HEADER = Contact.hpp Phonebook.hpp Common.hpp
+MAIN_SOURCES =	main.cpp Contact.cpp Phonebook.cpp
+HEADER = Contact.hpp Phonebook.hpp
 NAME = phonebook
 
 OBJECTS = $(MAIN_SOURCES:.cpp=.o)

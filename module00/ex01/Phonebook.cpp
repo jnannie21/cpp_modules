@@ -5,9 +5,8 @@
 #include "Phonebook.hpp"
 #include <iostream>
 #include <iomanip>
-#include "Common.hpp"
 
-int			Phonebook::_n = 0;
+int	Phonebook::_n = 0;
 
 Phonebook::Phonebook(void) {}
 
@@ -58,8 +57,9 @@ void		Phonebook::printPreviewOfContacts(void) const {
 }
 
 int			Phonebook::getIndex(void) const {
-	std::string	str = Common::getLineSafe();
+	std::string	str;
 
+	std::getline(std::cin, str);
 	if (str.length() == 0 || str.length() > 1 || str[0] < 48 || str[0] > 57)
 		return (-1);
 	return (str[0] - 48);
@@ -70,7 +70,7 @@ void		Phonebook::searchContact(void) const {
 
 	if (Phonebook::getN() > 0)
 	{
-		std::cout << "available contacts:" << std::endl;
+		std::cout << "available non-empty contacts:" << std::endl;
 		std::cout << std::setw(10) << "index" << "|";
 		std::cout << std::setw(10) << "first name" << "|";
 		std::cout << std::setw(10) << "last name" << "|";
@@ -80,16 +80,15 @@ void		Phonebook::searchContact(void) const {
 		{
 			std::cout << "enter index of the available entry[0, " << Phonebook::getN() - 1 << "]: ";
 			index = this->getIndex();
+			if (std::cin.eof())
+				return ;
 			if (index < 0)
 				std::cout << "invalid index(must be positive number)." << std::endl;
 			else if (index >= Phonebook::getN())
 				std::cout << "wrong index(must be in interval [0, " << Phonebook::getN() - 1 << "])." << std::endl;
 			else
 			{
-				if (this->_contacts[index].isEmpty())
-					std::cout << "contact[" << index << "]" << " is empty." << std::endl;
-				else
-					this->_contacts[index].printContact();
+				this->_contacts[index].printContact();
 				break ;
 			}
 		}
@@ -103,13 +102,18 @@ void 		Phonebook::execute(void) {
 
 	while (1)
 	{
-		std::cout << "Please, enter command and press enter: ";
-		command = Common::getLineSafe();
-		if (command == "EXIT" || std::cin.eof())
+		if (!std::cin.eof())
 		{
-			std::cout << "exit." << std::endl;
+			std::cout << "Please, enter command and press enter: ";
+			std::getline(std::cin, command);
+		}
+		if (std::cin.eof())
+		{
+			std::cout << std::endl << "exit." << std::endl;
 			break ;
 		}
+		if (command == "EXIT")
+			break ;
 		else if (command == "ADD")
 			this->addContact();
 		else if (command == "SEARCH")
