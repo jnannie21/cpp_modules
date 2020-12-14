@@ -1,0 +1,17 @@
+//
+// Created by jnannie on 12/14/20.
+//
+
+#ifndef ZOMBIETYPE_HPP
+#define ZOMBIETYPE_HPP
+
+enum ZombieType {
+	ZOMBIE_TYPE_NONE,
+	ZOMBIE_TYPE_HOMER,
+	ZOMBIE_TYPE_HAWKING,
+	ZOMBIE_TYPE_NINJA,
+	ZOMBIE_TYPE_T_800,
+	NUMBER_OF_ZOMBIE_TYPES
+};
+
+#endif //ZOMBIETYPE_HPP
