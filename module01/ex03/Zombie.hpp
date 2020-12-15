@@ -11,6 +11,7 @@
 class Zombie {
 public:
 	Zombie(void);
+	~Zombie(void);
 	Zombie(std::string name, ZombieType type);
 
 	void setName(std::string name);

@@ -10,7 +10,8 @@
 class ZombieHorde {
 public:
 	ZombieHorde(int n);
-	void announce(void);
+	~ZombieHorde(void);
+	void announce(void) const;
 
 private:
 	static const std::string _names[];

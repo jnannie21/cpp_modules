@@ -23,6 +23,10 @@ Zombie::Zombie(std::string name, ZombieType type) : _name(name), _type(type) {
 
 }
 
+Zombie::~Zombie(void) {
+	std::cout << "zombie " << this->_name << " destructed" << std::endl;
+}
+
 void Zombie::setName(std::string name) {
 	this->_name = name;
 }
