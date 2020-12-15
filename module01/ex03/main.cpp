@@ -8,5 +8,5 @@ int main() {
 	ZombieHorde zombie_horde(5);
 	zombie_horde.announce();
 
-	return 0;
+	return (0);
 }
