@@ -3,6 +3,7 @@ a.out
 .DS_Store
 .vscode
 1.c
+1.cpp
 phonebook
 .idea
 cmake-build-debug
