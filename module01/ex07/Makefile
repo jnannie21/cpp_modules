@@ -1,6 +1,6 @@
 CC = clang++
 CFLAGS = -c -Wall -Wextra -Werror -std=c++98
-MAIN_SOURCES = 	replace.cpp StreamEditor.cpp
+MAIN_SOURCES = 	replace.cpp Replacer.cpp
 NAME = replace
 
 OBJECTS = $(MAIN_SOURCES:.cpp=.o)

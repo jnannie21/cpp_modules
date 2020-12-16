@@ -2,15 +2,15 @@
 // Created by jnannie on 12/16/20.
 //
 
-#ifndef STREAMEDITOR_HPP
-#define STREAMEDITOR_HPP
+#ifndef REPLACER_HPP
+#define REPLACER_HPP
 
 #include <string>
 #include <fstream>
 
-class StreamEditor {
+class Replacer {
 public:
-	StreamEditor(const char *filename, const char *s1, const char *s2);
+	Replacer(const char *filename, const char *s1, const char *s2);
 	void replace(void);
 	bool getError(void) const;
 
@@ -26,4 +26,4 @@ private:
 };
 
 
-#endif //STREAMEDITOR_HPP
+#endif //REPLACER_HPP

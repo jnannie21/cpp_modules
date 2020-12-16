@@ -2,12 +2,12 @@
 // Created by jnannie on 12/16/20.
 //
 
-#include "StreamEditor.hpp"
+#include "Replacer.hpp"
 #include <iostream>
 #include <fstream>
 #include <cctype>
 
-StreamEditor::StreamEditor(const char *filename, const char *s1, const char *s2) :
+Replacer::Replacer(const char *filename, const char *s1, const char *s2) :
 						   _input_filename(filename), _s1(s1), _s2(s2), _error(false) {
 	this->_file.open(this->_input_filename);
 	if (!this->_file)
@@ -29,11 +29,11 @@ StreamEditor::StreamEditor(const char *filename, const char *s1, const char *s2)
 	this->_output_filename += ".replace";
 }
 
-bool StreamEditor::getError(void) const {
+bool Replacer::getError(void) const {
 	return (this->_error);
 }
 
-void StreamEditor::replace(void) {
+void Replacer::replace(void) {
 	if (this->_error)
 		return ;
 	std::ofstream output_file(this->_output_filename);
@@ -64,7 +64,7 @@ void StreamEditor::replace(void) {
 	}
 }
 
-void StreamEditor::_uppercaseFilename(std::string &upper_name) const {
+void Replacer::_uppercaseFilename(std::string &upper_name) const {
 	for (int i = 0; upper_name[i]; i++)
 		upper_name[i] = toupper(upper_name[i]);
 }
