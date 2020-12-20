@@ -2,17 +2,17 @@
 // Created by Johnette Nannie on 12/17/20.
 //
 
-#ifndef MODULE03_FRAGTRAP_HPP
-#define MODULE03_FRAGTRAP_HPP
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
 
 #include <string>
 
 class FragTrap {
 public:
 	FragTrap(std::string name);
-	~FragTrap(void);
 	FragTrap(const FragTrap &f);
 	FragTrap &operator=(const FragTrap &f);
+	~FragTrap(void);
 
 	void rangedAttack(std::string const & target);
 	void meleeAttack(std::string const & target);
@@ -23,7 +23,12 @@ public:
 private:
 	FragTrap(void);
 
-	static const std::string _randomAttacksPool[];
+	void _initializeRand(void);
+
+	static bool _isRandInitialized;
+	static const std::string _randomAttackPool[];
+	static const unsigned int _randomAttackDamage[];
+
 	unsigned int _hitPoints;
 	unsigned int _maxHitPoints;
 	unsigned int _energyPoints;
@@ -33,7 +38,9 @@ private:
 	unsigned int _meleeAttackDamage;
 	unsigned int _rangedAttackDamage;
 	unsigned int _armorDamageReduction;
+	unsigned int _randomAttackEnergyCost;
+
 };
 
 
-#endif //MODULE03_FRAGTRAP_HPP
+#endif //FRAGTRAP_HPP
