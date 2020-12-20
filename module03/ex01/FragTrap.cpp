@@ -56,12 +56,12 @@ FragTrap::~FragTrap(void) {
 }
 
 void FragTrap::rangedAttack(std::string const &target) {
-	std::cout << "FragTrap" << " " << this->_name << " attacks " << target << " with ranged attack, causing "
+	std::cout << this->_type << " " << this->_name << " attacks " << target << " with ranged attack, causing "
 			  << this->_rangedAttackDamage << " points of damage!" << std::endl;
 }
 
 void FragTrap::meleeAttack(std::string const &target) {
-	std::cout << "FragTrap" << " " << this->_name << " attacks " << target << " with melee attack, causing "
+	std::cout << this->_type << " " << this->_name << " attacks " << target << " with melee attack, causing "
 			  << this->_meleeAttackDamage << " points of damage!" << std::endl;
 }
 
