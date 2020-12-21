@@ -85,12 +85,12 @@ void FragTrap::beRepaired(unsigned int amount) {
 	std::cout << this->_name << " is repaired by " << amount << " points." << std::endl;
 }
 
-void FragTrap::rangedAttack(std::string const &target) {
+void FragTrap::rangedAttack(std::string const &target) const {
 	std::cout << this->_type << " " << this->_name << " attacks " << target << " with ranged attack, causing "
 			  << this->_rangedAttackDamage << " points of damage!" << std::endl;
 }
 
-void FragTrap::meleeAttack(std::string const &target) {
+void FragTrap::meleeAttack(std::string const &target) const {
 	std::cout << this->_type << " " << this->_name << " attacks " << target << " with melee attack, causing "
 			  << this->_meleeAttackDamage << " points of damage!" << std::endl;
 }

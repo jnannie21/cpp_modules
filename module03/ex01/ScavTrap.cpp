@@ -75,12 +75,12 @@ void ScavTrap::beRepaired(unsigned int amount) {
 	std::cout << this->_name << " is repaired by " << amount << " points." << std::endl;
 }
 
-void ScavTrap::rangedAttack(std::string const &target) {
+void ScavTrap::rangedAttack(std::string const &target) const {
 	std::cout << this->_type << " " << this->_name << " uses ranged attack on " << target << " causing "
 			  << this->_rangedAttackDamage << " points of damage!" << std::endl;
 }
 
-void ScavTrap::meleeAttack(std::string const &target) {
+void ScavTrap::meleeAttack(std::string const &target) const {
 	std::cout << this->_type << " " << this->_name << " uses melee attack on " << target << " causing "
 			  << this->_meleeAttackDamage << " points of damage!" << std::endl;
 }
