@@ -36,6 +36,16 @@ NinjaTrap::~NinjaTrap(void) {
 	std::cout << this->_type << " " << this->_name << " is destructed." << std::endl;
 }
 
+void NinjaTrap::rangedAttack(std::string const &target) const {
+	std::cout << this->_type << " " << this->_name << " attacks " << target << " with ranged attack, causing "
+			  << this->_rangedAttackDamage << " points of damage!" << std::endl;
+}
+
+void NinjaTrap::meleeAttack(std::string const &target) const {
+	std::cout << this->_type << " " << this->_name << " attacks " << target << " with melee attack, causing "
+			  << this->_meleeAttackDamage << " points of damage!" << std::endl;
+}
+
 void NinjaTrap::ninjaShoebox(ClapTrap &trap) {
 	std::cout << this->_type << " " << this->_name << " attacks " << trap.getType() << " " << trap.getName() << " with ninjaShoebox attack, causing... no damage at all..." << std::endl;
 }

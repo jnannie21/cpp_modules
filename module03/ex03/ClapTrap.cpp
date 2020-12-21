@@ -22,6 +22,21 @@ ClapTrap::ClapTrap(void) :
 	std::cout << this->_type << " " << this->_name << " is created." << std::endl;
 }
 
+ClapTrap::ClapTrap(std::string name) :
+		_type("ClapTrap"),
+		_hitPoints(0),
+		_maxHitPoints(0),
+		_energyPoints(0),
+		_maxEnergyPoints(0),
+		_level(0),
+		_name(name),
+		_meleeAttackDamage(0),
+		_rangedAttackDamage(0),
+		_armorDamageReduction(0) {
+	_initializeRand();
+	std::cout << this->_type << " " << this->_name << " is created." << std::endl;
+}
+
 ClapTrap::ClapTrap(const ClapTrap &f) {
 	*this = f;
 	std::cout << this->_type << " " << this->_name << " is created." << std::endl;
@@ -45,24 +60,6 @@ ClapTrap::~ClapTrap(void) {
 	std::cout << "ClapTrap" << " " << this->_name << " is destructed." << std::endl;
 }
 
-std::string ClapTrap::getName(void) const {
-	return (this->_name);
-}
-
-std::string ClapTrap::getType(void) const {
-	return (this->_type);
-}
-
-void ClapTrap::rangedAttack(std::string const &target) const {
-	std::cout << this->_type << " " << this->_name << " attacks " << target << " with ranged attack, causing "
-			  << this->_rangedAttackDamage << " points of damage!" << std::endl;
-}
-
-void ClapTrap::meleeAttack(std::string const &target) const {
-	std::cout << this->_type << " " << this->_name << " attacks " << target << " with melee attack, causing "
-			  << this->_meleeAttackDamage << " points of damage!" << std::endl;
-}
-
 void ClapTrap::takeDamage(unsigned int amount) {
 	unsigned int damage = 0;
 
@@ -80,6 +77,14 @@ void ClapTrap::beRepaired(unsigned int amount) {
 		amount = this->_maxHitPoints - this->_hitPoints;
 	this->_hitPoints += amount;
 	std::cout << this->_type << " " << this->_name << " is repaired by " << amount << " points." << std::endl;
+}
+
+std::string ClapTrap::getType(void) const {
+	return (this->_type);
+}
+
+std::string ClapTrap::getName(void) const {
+	return (this->_name);
 }
 
 void ClapTrap::_initializeRand(void) {

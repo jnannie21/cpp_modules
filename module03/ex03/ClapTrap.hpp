@@ -11,16 +11,16 @@
 class ClapTrap {
 public:
 	ClapTrap(void);
+	ClapTrap(std::string name);
 	ClapTrap(const ClapTrap &f);
 	ClapTrap &operator=(const ClapTrap &f);
 	~ClapTrap(void);
 
-	void rangedAttack(std::string const & target) const;
-	void meleeAttack(std::string const & target) const;
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
-	std::string getName(void) const;
 	std::string getType(void) const;
+	std::string getName(void) const;
+
 
 protected:
 	std::string _type;

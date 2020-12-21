@@ -5,6 +5,9 @@
 
 int main() {
 	FragTrap ft("FT");
+	ScavTrap st("ST");
+	NinjaTrap nt("NT");
+	ClapTrap ct("CT");
 
 	ft.meleeAttack("enemy trooper");
 	ft.takeDamage(30);
@@ -22,8 +25,6 @@ int main() {
 
 	std::cout << "---------------------" << std::endl;
 
-	ScavTrap st("ST");
-
 	st.meleeAttack("enemy trooper");
 	st.takeDamage(30);
 	st.rangedAttack("enemy archer");
@@ -38,8 +39,6 @@ int main() {
 
 	std::cout << "---------------------" << std::endl;
 
-	NinjaTrap nt("NT");
-
 	nt.meleeAttack("enemy trooper");
 	nt.takeDamage(30);
 	nt.rangedAttack("enemy archer");
@@ -50,8 +49,8 @@ int main() {
 	nt.ninjaShoebox(ft);
 	nt.ninjaShoebox(st);
 	nt.ninjaShoebox(nt);
-	ClapTrap ct;
 	nt.ninjaShoebox(ct);
+
 	nt.takeDamage(110);
 
 	return 0;
