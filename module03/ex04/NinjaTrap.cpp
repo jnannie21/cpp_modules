@@ -34,7 +34,17 @@ NinjaTrap &NinjaTrap::operator=(const NinjaTrap &f) {
 }
 
 NinjaTrap::~NinjaTrap(void) {
-	std::cout << this->_type << " " << this->_name << " is destructed." << std::endl;
+	std::cout << "NinjaTrap is destructed." << std::endl;
+}
+
+void NinjaTrap::rangedAttack(std::string const &target) const {
+	std::cout << this->_type << " " << this->_name << " uses ranged attack on " << target << " and causes "
+			  << this->_rangedAttackDamage << " points of damage!" << std::endl;
+}
+
+void NinjaTrap::meleeAttack(std::string const &target) const {
+	std::cout << this->_type << " " << this->_name << " uses ranged attack on " << target << " and causes "
+			  << this->_meleeAttackDamage << " points of damage!" << std::endl;
 }
 
 void NinjaTrap::ninjaShoebox(ClapTrap &trap) {

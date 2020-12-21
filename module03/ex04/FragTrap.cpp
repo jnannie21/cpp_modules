@@ -51,7 +51,17 @@ FragTrap &FragTrap::operator=(const FragTrap &f) {
 }
 
 FragTrap::~FragTrap(void) {
-	std::cout << this->_type << " " << this->_name << " is destructed." << std::endl;
+	std::cout << "FragTrap is destructed." << std::endl;
+}
+
+void FragTrap::rangedAttack(std::string const &target) const {
+	std::cout << this->_type << " " << this->_name << " attacks " << target << " with ranged attack, causing "
+			  << this->_rangedAttackDamage << " points of damage!" << std::endl;
+}
+
+void FragTrap::meleeAttack(std::string const &target) const {
+	std::cout << this->_type << " " << this->_name << " attacks " << target << " with melee attack, causing "
+			  << this->_meleeAttackDamage << " points of damage!" << std::endl;
 }
 
 void FragTrap::vaultHunterDotExe(std::string const &target) {

@@ -35,7 +35,7 @@ SuperTrap &SuperTrap::operator=(const SuperTrap &f) {
 }
 
 SuperTrap::~SuperTrap(void) {
-	std::cout << this->_type << " " << this->_name << " is destructed." << std::endl;
+	std::cout << "SuperTrap is destructed." << std::endl;
 }
 
 void SuperTrap::rangedAttack(std::string const & target) const {

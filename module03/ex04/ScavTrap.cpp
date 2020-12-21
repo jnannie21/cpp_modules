@@ -19,15 +19,16 @@ ScavTrap::ScavTrap(void) {
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap() {
 	this->_type = "ScavTrap";
-	this->_hitPoints = 100;
-	this->_maxHitPoints = 100;
-	this->_energyPoints = 50;
-	this->_maxEnergyPoints = 50;
-	this->_level = 1;
+	this->_hitPoints = HIT_POINTS;
+	this->_maxHitPoints = MAX_HIT_POINTS;
+	this->_energyPoints = ENERGY_POINTS;
+	this->_maxEnergyPoints = MAX_ENERGY_POINTS;
+	this->_level = LEVEL;
 	this->_name = name;
-	this->_meleeAttackDamage = 20;
-	this->_rangedAttackDamage = 15;
-	this->_armorDamageReduction = 3;
+	this->_meleeAttackDamage = MELEE_ATTACK_DAMAGE;
+	this->_rangedAttackDamage = RANGED_ATTACK_DAMAGE;
+	this->_armorDamageReduction = ARMOR_DAMAGE_REDUCTION;
+
 	std::cout << this->_type << " " << this->_name << " is created." << std::endl;
 }
 
@@ -41,7 +42,17 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &f) {
 }
 
 ScavTrap::~ScavTrap(void) {
-	std::cout << this->_type << " " << this->_name << " is destructed." << std::endl;
+	std::cout << "ScavTrap is destructed." << std::endl;
+}
+
+void ScavTrap::rangedAttack(std::string const &target) const {
+	std::cout << this->_type << " " << this->_name << " uses ranged attack on " << target << " and causes "
+			  << this->_rangedAttackDamage << " points of damage!" << std::endl;
+}
+
+void ScavTrap::meleeAttack(std::string const &target) const {
+	std::cout << this->_type << " " << this->_name << " uses ranged attack on " << target << " and causes "
+			  << this->_meleeAttackDamage << " points of damage!" << std::endl;
 }
 
 void ScavTrap::challengeNewcomer(void) {

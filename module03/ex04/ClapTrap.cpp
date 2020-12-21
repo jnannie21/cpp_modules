@@ -42,7 +42,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &f) {
 }
 
 ClapTrap::~ClapTrap(void) {
-	std::cout << "ClapTrap" << " " << this->_name << " is destructed." << std::endl;
+	std::cout << "ClapTrap is destructed." << std::endl;
 }
 
 std::string ClapTrap::getName(void) const {
@@ -51,16 +51,6 @@ std::string ClapTrap::getName(void) const {
 
 std::string ClapTrap::getType(void) const {
 	return (this->_type);
-}
-
-void ClapTrap::rangedAttack(std::string const &target) const {
-	std::cout << this->_type << " " << this->_name << " attacks " << target << " with ranged attack, causing "
-			  << this->_rangedAttackDamage << " points of damage!" << std::endl;
-}
-
-void ClapTrap::meleeAttack(std::string const &target) const {
-	std::cout << this->_type << " " << this->_name << " attacks " << target << " with melee attack, causing "
-			  << this->_meleeAttackDamage << " points of damage!" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
