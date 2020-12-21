@@ -14,8 +14,8 @@ public:
 	FragTrap &operator=(const FragTrap &f);
 	~FragTrap(void);
 
-	void rangedAttack(std::string const & target);
-	void meleeAttack(std::string const & target);
+	void rangedAttack(std::string const & target) const;
+	void meleeAttack(std::string const & target) const;
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 	void vaultHunterDotExe(std::string const & target);
