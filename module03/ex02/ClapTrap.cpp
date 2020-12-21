@@ -22,6 +22,21 @@ ClapTrap::ClapTrap(void) :
 	std::cout << this->_type << " " << this->_name << " is created." << std::endl;
 }
 
+ClapTrap::ClapTrap(std::string name) :
+		_type("ClapTrap"),
+		_hitPoints(0),
+		_maxHitPoints(0),
+		_energyPoints(0),
+		_maxEnergyPoints(0),
+		_level(0),
+		_name(name),
+		_meleeAttackDamage(0),
+		_rangedAttackDamage(0),
+		_armorDamageReduction(0) {
+	_initializeRand();
+	std::cout << this->_type << " " << this->_name << " is created." << std::endl;
+}
+
 ClapTrap::ClapTrap(const ClapTrap &f) {
 	*this = f;
 	std::cout << this->_type << " " << this->_name << " is created." << std::endl;
