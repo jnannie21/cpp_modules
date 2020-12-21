@@ -32,9 +32,9 @@ protected:
 	static const int ARMOR_DAMAGE_REDUCTION = 5;
 
 private:
-	static const std::string _randomAttackPool[5];
-	static const unsigned int _randomAttackDamage[5];
-	static const unsigned int _randomAttackEnergyCost;
+	static const std::string RANDOM_ATTACK_POOL[];
+	static const unsigned int RANDOM_ATTACK_DAMAGE[];
+	static const unsigned int RANDOM_ATTACK_ENERGY_COST = 25;
 };
 
 

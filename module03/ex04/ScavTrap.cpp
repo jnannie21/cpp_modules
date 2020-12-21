@@ -5,7 +5,7 @@
 #include "ScavTrap.hpp"
 #include <iostream>
 
-const std::string ScavTrap::_randomChallengePool[] = {
+const std::string ScavTrap::RANDOM_CHALLENGE_POOL[] = {
 	"Poker",
 	"Darts",
 	"Caucus race",
@@ -59,5 +59,5 @@ void ScavTrap::challengeNewcomer(void) {
 	int index = std::rand() % 5;
 
 	std::cout << this->_type << " " << this->_name << " choses challenge "
-			  << ScavTrap::_randomChallengePool[index] << std::endl;
+			  << ScavTrap::RANDOM_CHALLENGE_POOL[index] << std::endl;
 }

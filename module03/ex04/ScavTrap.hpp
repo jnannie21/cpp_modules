@@ -32,7 +32,7 @@ protected:
 	static const int ARMOR_DAMAGE_REDUCTION = 3;
 
 private:
-	static const std::string _randomChallengePool[];
+	static const std::string RANDOM_CHALLENGE_POOL[];
 };
 
 
