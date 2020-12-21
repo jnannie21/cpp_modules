@@ -5,7 +5,7 @@
 #include "FragTrap.hpp"
 #include <iostream>
 
-const std::string FragTrap::_randomAttackPool[] = {
+const std::string FragTrap::RANDOM_ATTACK_POOL[] = {
 	"Bite",
 	"Stab with knife",
 	"Loud shout",
@@ -13,15 +13,13 @@ const std::string FragTrap::_randomAttackPool[] = {
 	"Kick"
 };
 
-const unsigned int FragTrap::_randomAttackDamage[] = {
+const unsigned int FragTrap::RANDOM_ATTACK_DAMAGE[] = {
 	35,
 	45,
 	15,
 	25,
 	15
 };
-
-const unsigned int FragTrap::_randomAttackEnergyCost = 25;
 
 FragTrap::FragTrap(void) {
 
@@ -67,14 +65,14 @@ void FragTrap::meleeAttack(std::string const &target) const {
 void FragTrap::vaultHunterDotExe(std::string const &target) {
 	int index = std::rand() % 5;
 
-	if (this->_energyPoints < FragTrap::_randomAttackEnergyCost)
+	if (this->_energyPoints < FragTrap::RANDOM_ATTACK_ENERGY_COST)
 	{
 		std::cout << this->_type << " " << this->_name << " out of energy." << std::endl;
 		return ;
 	}
 	else
-		this->_energyPoints -= FragTrap::_randomAttackEnergyCost;
+		this->_energyPoints -= FragTrap::RANDOM_ATTACK_ENERGY_COST;
 	std::cout << this->_type << " " << this->_name << " attacks " << target << " with "
-			<< FragTrap::_randomAttackPool[index] << " attack, causing "
-			<< FragTrap::_randomAttackDamage[index] << " points of damage!" << std::endl;
+			<< FragTrap::RANDOM_ATTACK_POOL[index] << " attack, causing "
+			<< FragTrap::RANDOM_ATTACK_DAMAGE[index] << " points of damage!" << std::endl;
 }

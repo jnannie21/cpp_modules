@@ -10,6 +10,7 @@
 
 class ScavTrap : public ClapTrap {
 public:
+	ScavTrap(void);
 	ScavTrap(std::string name);
 	ScavTrap(const ScavTrap &f);
 	ScavTrap &operator=(const ScavTrap &f);
@@ -20,9 +21,8 @@ public:
 	void challengeNewcomer(void);
 
 private:
-	ScavTrap(void);
 
-	static const std::string _randomChallengePool[];
+	static const std::string RANDOM_CHALLENGE_POOL[];
 };
 
 
