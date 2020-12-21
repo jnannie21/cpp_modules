@@ -23,7 +23,7 @@ public:
 private:
 	ScavTrap(void);
 
-	static const std::string _randomChallengePool[];
+	static const std::string RANDOM_CHALLENGE_POOL[];
 };
 
 
