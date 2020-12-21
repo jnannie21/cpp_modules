@@ -9,6 +9,7 @@
 
 class FragTrap {
 public:
+	FragTrap(void);
 	FragTrap(std::string name);
 	FragTrap(const FragTrap &f);
 	FragTrap &operator=(const FragTrap &f);
@@ -21,8 +22,6 @@ public:
 	void vaultHunterDotExe(std::string const & target);
 
 private:
-	FragTrap(void);
-
 	void _initializeRand(void);
 
 	static bool _isRandInitialized;
