@@ -29,15 +29,15 @@ FragTrap::FragTrap(void) {
 
 FragTrap::FragTrap(std::string name) {
 	this->_type = "FragTrap";
-	this->_hitPoints = 100;
-	this->_maxHitPoints = 100;
-	this->_energyPoints = 100;
-	this->_maxEnergyPoints = 100;
-	this->_level = 1;
+	this->_hitPoints = HIT_POINTS;
+	this->_maxHitPoints = MAX_HIT_POINTS;
+	this->_energyPoints = ENERGY_POINTS;
+	this->_maxEnergyPoints = MAX_ENERGY_POINTS;
+	this->_level = LEVEL;
 	this->_name = name;
-	this->_meleeAttackDamage = 30;
-	this->_rangedAttackDamage = 20;
-	this->_armorDamageReduction = 5;
+	this->_meleeAttackDamage = MELEE_ATTACK_DAMAGE;
+	this->_rangedAttackDamage = RANGED_ATTACK_DAMAGE;
+	this->_armorDamageReduction = ARMOR_DAMAGE_REDUCTION;
 	std::cout << this->_type << " " << this->_name << " is created." << std::endl;
 }
 

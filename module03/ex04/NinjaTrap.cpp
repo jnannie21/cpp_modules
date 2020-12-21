@@ -11,15 +11,16 @@ NinjaTrap::NinjaTrap(void) {
 
 NinjaTrap::NinjaTrap(std::string name) {
 	this->_type = "NinjaTrap";
-	this->_hitPoints = 60;
-	this->_maxHitPoints = 60;
-	this->_energyPoints = 120;
-	this->_maxEnergyPoints = 120;
-	this->_level = 1;
+	this->_hitPoints = HIT_POINTS;
+	this->_maxHitPoints = MAX_HIT_POINTS;
+	this->_energyPoints = ENERGY_POINTS;
+	this->_maxEnergyPoints = MAX_ENERGY_POINTS;
+	this->_level = LEVEL;
 	this->_name = name;
-	this->_meleeAttackDamage = 60;
-	this->_rangedAttackDamage = 5;
-	this->_armorDamageReduction = 0;
+	this->_meleeAttackDamage = MELEE_ATTACK_DAMAGE;
+	this->_rangedAttackDamage = RANGED_ATTACK_DAMAGE;
+	this->_armorDamageReduction = ARMOR_DAMAGE_REDUCTION;
+
 	std::cout << this->_type << " " << this->_name << " is created." << std::endl;
 }
 

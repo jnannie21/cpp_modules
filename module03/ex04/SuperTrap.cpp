@@ -13,15 +13,15 @@ SuperTrap::SuperTrap(void) {
 
 SuperTrap::SuperTrap(std::string name) {
 	this->_type = "SuperTrap";
-	this->_hitPoints = 100;
-	this->_maxHitPoints = 100;
-	this->_energyPoints = 120;
-	this->_maxEnergyPoints = 120;
+	this->_hitPoints = FragTrap::HIT_POINTS;
+	this->_maxHitPoints = FragTrap::MAX_HIT_POINTS;
+	this->_energyPoints = NinjaTrap::ENERGY_POINTS;
+	this->_maxEnergyPoints = NinjaTrap::MAX_ENERGY_POINTS;
 	this->_level = 1;
 	this->_name = name;
-	this->_meleeAttackDamage = 60;
-	this->_rangedAttackDamage = 20;
-	this->_armorDamageReduction = 5;
+	this->_meleeAttackDamage = NinjaTrap::MELEE_ATTACK_DAMAGE;
+	this->_rangedAttackDamage = FragTrap::RANGED_ATTACK_DAMAGE;
+	this->_armorDamageReduction = FragTrap::ARMOR_DAMAGE_REDUCTION;
 	std::cout << this->_type << " " << this->_name << " is created." << std::endl;
 }
 

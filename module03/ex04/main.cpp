@@ -53,6 +53,7 @@ int main() {
 	nt.ninjaShoebox(nt);
 	ClapTrap ct;
 	nt.ninjaShoebox(ct);
+
 	nt.takeDamage(110);
 
 	std::cout << "---------------------" << std::endl;

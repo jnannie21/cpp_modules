@@ -22,6 +22,16 @@ public:
 	void ninjaShoebox(FragTrap &trap);
 	void ninjaShoebox(ScavTrap &trap);
 	void ninjaShoebox(NinjaTrap &trap);
+
+protected:
+	static const int HIT_POINTS = 60;
+	static const int MAX_HIT_POINTS = 60;
+	static const int ENERGY_POINTS = 120;
+	static const int MAX_ENERGY_POINTS = 120;
+	static const int LEVEL = 1;
+	static const int MELEE_ATTACK_DAMAGE = 60;
+	static const int RANGED_ATTACK_DAMAGE = 5;
+	static const int ARMOR_DAMAGE_REDUCTION = 0;
 };
 
 
