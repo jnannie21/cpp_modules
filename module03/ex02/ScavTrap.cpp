@@ -44,6 +44,16 @@ ScavTrap::~ScavTrap(void) {
 	std::cout << this->_type << " " << this->_name << " is destructed." << std::endl;
 }
 
+void ScavTrap::rangedAttack(std::string const &target) {
+	std::cout << this->_type << " " << this->_name << " uses ranged attack on " << target << " and causes "
+			  << this->_rangedAttackDamage << " points of damage!" << std::endl;
+}
+
+void ScavTrap::meleeAttack(std::string const &target) {
+	std::cout << this->_type << " " << this->_name << " uses ranged attack on " << target << " and causes "
+			  << this->_meleeAttackDamage << " points of damage!" << std::endl;
+}
+
 void ScavTrap::challengeNewcomer(void) {
 	int index = std::rand() % 5;
 

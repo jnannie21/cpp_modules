@@ -45,16 +45,6 @@ ClapTrap::~ClapTrap(void) {
 	std::cout << "ClapTrap" << " " << this->_name << " is destructed." << std::endl;
 }
 
-void ClapTrap::rangedAttack(std::string const &target) {
-	std::cout << this->_type << " " << this->_name << " attacks " << target << " with ranged attack, causing "
-			  << this->_rangedAttackDamage << " points of damage!" << std::endl;
-}
-
-void ClapTrap::meleeAttack(std::string const &target) {
-	std::cout << this->_type << " " << this->_name << " attacks " << target << " with melee attack, causing "
-			  << this->_meleeAttackDamage << " points of damage!" << std::endl;
-}
-
 void ClapTrap::takeDamage(unsigned int amount) {
 	unsigned int damage = 0;
 
