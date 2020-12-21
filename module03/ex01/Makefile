@@ -1,6 +1,6 @@
 CC = clang++
 CFLAGS = -c -Wall -Wextra -Werror -std=c++98
-MAIN_SOURCES = 	main.cpp BaseTrap.cpp FragTrap.cpp ScavTrap.cpp
+MAIN_SOURCES = 	main.cpp FragTrap.cpp ScavTrap.cpp
 NAME = a.out
 
 OBJECTS = $(MAIN_SOURCES:.cpp=.o)

@@ -5,6 +5,8 @@
 #include "FragTrap.hpp"
 #include <iostream>
 
+bool FragTrap::_isRandInitialized = false;
+
 const std::string FragTrap::_randomAttackPool[] = {
 	"Bite",
 	"Stab with knife",
@@ -47,12 +49,40 @@ FragTrap::FragTrap(const FragTrap &f) {
 }
 
 FragTrap &FragTrap::operator=(const FragTrap &f) {
-	BaseTrap::operator=(f);
+	this->_type = f._type;
+	this->_hitPoints = f._hitPoints;
+	this->_maxHitPoints = f._maxHitPoints;
+	this->_energyPoints = f._energyPoints;
+	this->_maxEnergyPoints = f._maxEnergyPoints;
+	this->_level = f._level;
+	this->_name = f._name;
+	this->_meleeAttackDamage = f._meleeAttackDamage;
+	this->_rangedAttackDamage = f._rangedAttackDamage;
+	this->_armorDamageReduction = f._armorDamageReduction;
 	return (*this);
 }
 
 FragTrap::~FragTrap(void) {
+	std::cout << this->_type << " " << this->_name << " is destructed." << std::endl;
+}
 
+void FragTrap::takeDamage(unsigned int amount) {
+	unsigned int damage = 0;
+
+	if (amount > this->_armorDamageReduction)
+		damage = amount - this->_armorDamageReduction;
+	if (this->_hitPoints < damage)
+		damage = this->_hitPoints;
+	this->_hitPoints -= damage;
+	std::cout << this->_name << " takes " << damage << " points of damage!" << std::endl;
+}
+
+void FragTrap::beRepaired(unsigned int amount) {
+	if ((this->_hitPoints > std::numeric_limits<unsigned int>::max() - amount)
+		|| (this->_hitPoints + amount > this->_maxHitPoints))
+		amount = this->_maxHitPoints - this->_hitPoints;
+	this->_hitPoints += amount;
+	std::cout << this->_name << " is repaired by " << amount << " points." << std::endl;
 }
 
 void FragTrap::rangedAttack(std::string const &target) {
@@ -80,4 +110,10 @@ void FragTrap::vaultHunterDotExe(std::string const &target) {
 			<< FragTrap::_randomAttackDamage[index] << " points of damage!" << std::endl;
 }
 
+void FragTrap::_initializeRand(void) {
+	if (FragTrap::_isRandInitialized)
+		return ;
+	std::srand(std::time(NULL));
+	FragTrap::_isRandInitialized = true;
+}
 
