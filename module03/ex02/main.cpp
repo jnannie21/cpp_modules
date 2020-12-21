@@ -4,6 +4,7 @@
 
 int main() {
 	FragTrap ft("FT");
+	ScavTrap st("ST");
 
 	ft.meleeAttack("enemy trooper");
 	ft.takeDamage(30);
@@ -20,8 +21,6 @@ int main() {
 	ft.takeDamage(110);
 
 	std::cout << "---------------------" << std::endl;
-
-	ScavTrap st("ST");
 
 	st.meleeAttack("enemy trooper");
 	st.takeDamage(30);
