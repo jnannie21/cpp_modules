@@ -6,6 +6,7 @@
 #include "Enemy.hpp"
 #include "AWeapon.hpp"
 #include "RadScorpion.hpp"
+#include "SuperMutant.hpp"
 #include "PlasmaRifle.hpp"
 #include "PowerFist.hpp"
 #include <iostream>
@@ -32,6 +33,29 @@ int main()
 	me->attack(b);
 	std::cout << *me;
 	me->attack(b);
+	std::cout << *me;
+
+	std::cout << "-------------------------" << std::endl;
+
+	Enemy* c = new SuperMutant();
+
+	me->attack(c);
+	std::cout << *me;
+
+	me->equip(pf);
+	std::cout << *me;
+	me->attack(c);
+	std::cout << *me;
+	me->attack(c);
+	std::cout << *me;
+	me->recoverAP();
+	me->attack(c);
+
+	me->attack(c);
+
+	std::cout << "enemy hp is " << c->getHp() << std::endl;
+	me->recoverAP();
+	me->attack(c);
 	std::cout << *me;
 
 	return 0;
