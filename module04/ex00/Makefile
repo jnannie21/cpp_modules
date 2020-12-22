@@ -1,6 +1,6 @@
 CC = clang++
 CFLAGS = -c -Wall -Wextra -Werror -std=c++98
-MAIN_SOURCES = 	main.cpp Sorcerer.cpp Victim.cpp Peon.cpp
+MAIN_SOURCES = 	main.cpp Sorcerer.cpp Victim.cpp Peon.cpp Peoon.cpp
 NAME = a.out
 
 OBJECTS = $(MAIN_SOURCES:.cpp=.o)

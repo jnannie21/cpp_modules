@@ -5,6 +5,7 @@
 #include "Sorcerer.hpp"
 #include "Victim.hpp"
 #include "Peon.hpp"
+#include "Peoon.hpp"
 #include <iostream>
 
 int main() {
@@ -18,5 +19,12 @@ int main() {
 	robert.polymorph(jim);
 	robert.polymorph(joe);
 
+	std::cout << "---------------------------------" << std::endl;
+
+	Peoon john("John");
+	std::cout << john;
+	robert.polymorph(john);
+
+	std::cout << "---------------------------------" << std::endl;
 	return 0;
 }

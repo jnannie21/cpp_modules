@@ -26,10 +26,6 @@ Peon::~Peon(void) {
 	std::cout << "Bleuark..." << std::endl;
 }
 
-std::string Peon::getName(void) const {
-	return (this->_name);
-}
-
 void Peon::getPolymorphed(void) const {
 	std::cout << this->_name << " has been turned into a pink pony!" << std::endl;
 }
