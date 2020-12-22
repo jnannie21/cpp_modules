@@ -4,7 +4,7 @@
 
 #include "AWeapon.hpp"
 
-AWeapon::AWeapon() : _name(""), _apCost(0), _damage(0), {
+AWeapon::AWeapon() : _name(""), _apCost(0), _damage(0) {
 
 }
 

@@ -37,9 +37,8 @@ int Enemy::getHp() const {
 	return (this->_hp);
 }
 
-virtual void Enemy::takeDamage(int damage) {
-	if (this->_hp < damage)
-		this->hp = 0;
-	else
-		this->_hp -= damage;
+void Enemy::takeDamage(int damage) {
+	this->_hp -= damage;
+	if (this->_hp < 0)
+		this->_hp = 0;
 }

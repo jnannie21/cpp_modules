@@ -15,9 +15,6 @@ private:
 	int _ap;
 	AWeapon *_weapon;
 
-//protected:
-//	AWeapon *_getWeapon();
-
 public:
 	Character();
 	Character(std::string const & name);
@@ -29,8 +26,10 @@ public:
 	void equip(AWeapon *weapon);
 	void attack(Enemy *enemy);
 	std::string const &getName() const;
-//	int getAp() const;
-//	AWeapon *getWeapon() const;
+	int getAp() const;
+	AWeapon *getWeapon() const;
 };
+
+std::ostream &operator<<(std::ostream &stream, Character const &character);
 
 #endif //CHARACTER_HPP

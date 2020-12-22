@@ -33,9 +33,9 @@ Character::~Character() {
 
 void Character::recoverAP() {
 	if (this->_ap > 40 - 10)
-		this->_app = 40;
+		this->_ap = 40;
 	else
-		this->_app += 10;
+		this->_ap += 10;
 }
 
 void Character::equip(AWeapon *weapon) {
@@ -45,17 +45,15 @@ void Character::equip(AWeapon *weapon) {
 void Character::attack(Enemy *enemy) {
 	if(this->_weapon)
 	{
-		if (this->_ap > this->_weapon->getAPCost())
+		if (this->_ap > this->_weapon->getApCost())
 		{
-			this->_ap = this->_ap - this->_weapon->getAPCost();
+			std::cout << this->_name << " attacks " << enemy->getType() << " with a " << this->_weapon->getName() << std::endl;
 			this->_weapon->attack();
+			this->_ap -= this->_weapon->getApCost();
 			enemy->takeDamage(this->_weapon->getDamage());
 			if (enemy->getHp() == 0)
 				delete enemy;
-			std::cout << this->_name << " attacks " << enemy->getType() << " with a " << this->_weapon->getName() << std::endl;
 		}
-		else
-			this->_ap = 0;
 	}
 }
 
@@ -63,14 +61,18 @@ std::string const &Character::getName() const {
 	return (this->_name);
 }
 
-//int Character::getAp() const {
-//	return (this->_ap);
-//}
+int Character::getAp() const {
+	return (this->_ap);
+}
 
-//AWeapon *Character::getWeapon() const {
-//	return (this->_weapon);
-//}
-//
-//AWeapon *Character::_getWeapon() {
-//	return (this->_weapon);
-//}
+AWeapon *Character::getWeapon() const {
+	return (this->_weapon);
+}
+
+std::ostream &operator<<(std::ostream &stream, Character const &character) {
+	if (character.getWeapon())
+		stream << character.getName() << " has " << character.getAp() << " AP and wields a " << character.getWeapon()->getName() << std::endl;
+	else
+		stream << character.getName() << " has " << character.getAp() << " AP and is unarmed" << std::endl;
+	return (stream);
+}
