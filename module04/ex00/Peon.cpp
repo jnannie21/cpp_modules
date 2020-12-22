@@ -5,7 +5,7 @@
 #include "Peon.hpp"
 #include <iostream>
 
-Peon::Peon(void) {
+Peon::Peon(void) : Victim() {
 	std::cout << "Zog zog." << std::endl;
 }
 
@@ -13,12 +13,12 @@ Peon::Peon(std::string name) : Victim(name) {
 	std::cout << "Zog zog." << std::endl;
 }
 
-Peon::Peon(const Victim &other) {
-	this->_name = other.getName();
+Peon::Peon(const Victim &other) : Victim(other) {
+	std::cout << "Zog zog." << std::endl;
 }
 
 Peon &Peon::operator=(const Peon &other) {
-	this->_name = other.getName();
+	Victim::operator =(other);
 	return (*this);
 }
 
