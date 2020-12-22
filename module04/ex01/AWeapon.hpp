@@ -10,21 +10,22 @@
 class AWeapon
 {
 private:
-	AWeapon();
-
 	std::string _name;
-	int _damage;
 	int _apCost;
+	int _damage;
 
 public:
+	AWeapon();
 	AWeapon(std::string const & name, int apcost, int damage);
 	AWeapon(AWeapon const &other);
 	AWeapon &operator=(AWeapon const &other);
 	~AWeapon();
-	std::string [...] getName() const;
-	int getAPCost() const;
+
+	std::string const &getName() const;
+	int getApCost() const;
 	int getDamage() const;
-	[...] void attack() const = 0;
+
+	virtual void attack() const = 0;
 };
 
 #endif //AWEAPON_HPP

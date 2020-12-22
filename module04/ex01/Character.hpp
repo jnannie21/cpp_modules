@@ -5,25 +5,32 @@
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
 
+#include "Enemy.hpp"
+#include "AWeapon.hpp"
 #include <string>
 
 class Character {
 private:
-	Character();
-
 	std::string _name;
 	int _ap;
 	AWeapon *_weapon;
 
+//protected:
+//	AWeapon *_getWeapon();
+
 public:
+	Character();
 	Character(std::string const & name);
 	Character(Character const &other);
 	Character &operator=(Character const &other);
 	~Character();
+
 	void recoverAP();
-	void equip(AWeapon*);
-	void attack(Enemy*);
-	std::string [...] getName() const;
+	void equip(AWeapon *weapon);
+	void attack(Enemy *enemy);
+	std::string const &getName() const;
+//	int getAp() const;
+//	AWeapon *getWeapon() const;
 };
 
 #endif //CHARACTER_HPP

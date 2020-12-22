@@ -10,19 +10,19 @@
 class Enemy
 {
 private:
-	Enemy();
-
 	int _hp;
 	std::string _type;
 
 public:
-	Enemy(int hp, std::string const & type);
+	Enemy();
+	Enemy(int hp, std::string const &type);
 	Enemy(Enemy const &other);
 	Enemy &operator=(Enemy const &other);
 	~Enemy();
-	std::string [...] getType() const;
-	int getHP() const;
-	virtual void takeDamage(int);
+
+	std::string const &getType() const;
+	int getHp() const;
+	virtual void takeDamage(int damage);
 };
 
 
