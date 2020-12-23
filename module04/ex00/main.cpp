@@ -26,5 +26,17 @@ int main() {
 	robert.polymorph(john);
 
 	std::cout << "---------------------------------" << std::endl;
+
+	Peoon qwe("qwe");
+	std::cout << qwe;
+	qwe = john;
+	std::cout << qwe;
+
+	std::cout << "---------------------------------" << std::endl;
+
+	Peon asd(jim);
+	std::cout << asd;
+
+	std::cout << "---------------------------------" << std::endl;
 	return 0;
 }
