@@ -9,7 +9,7 @@ Squad::Squad() : _count(0), _units(NULL) {
 
 }
 
-Squad::Squad(Squad const &other) {
+Squad::Squad(Squad const &other) : _count(0), _units(NULL) {
 	*this = other;
 }
 
@@ -67,7 +67,7 @@ int Squad::push(ISpaceMarine *unit) {
 
 	units[this->_count] = unit;
 	this->_count++;
-	delete[] this->_units;
+	delete [] this->_units;
 	this->_units = units;
 	return (this->_count);
 }
