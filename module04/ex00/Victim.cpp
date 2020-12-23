@@ -37,6 +37,6 @@ void Victim::getPolymorphed(void) const {
 }
 
 std::ostream &operator<<(std::ostream &stream, Victim const &victim) {
-	stream << "I am " << victim.getName() << " and I like otters!" << std::endl;
+	stream << "I'm " << victim.getName() << " and I like otters!" << std::endl;
 	return (stream);
 }

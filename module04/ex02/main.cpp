@@ -32,6 +32,7 @@ int main()
 	vlc = new Squad;
 	vlc->push(bob);
 	vlc->push(jim);
+	std::cout << "assignment operator here:" << std::endl;
 	ISquad* vlc2 = new Squad;
 	*((Squad *)vlc2) = *((Squad *)vlc);
 	for (int i = 0; i < vlc2->getCount(); ++i)
