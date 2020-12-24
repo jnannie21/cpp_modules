@@ -77,3 +77,10 @@ void Character::use(int idx, ICharacter &target)
 
 	this->_inventory[idx]->use(target);
 }
+
+AMateria *Character::getMateria(int idx) {
+	if (idx < 0 || idx > 3)
+		return NULL;
+
+	return (this->_inventory[idx]);
+}

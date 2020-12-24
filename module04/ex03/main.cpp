@@ -37,8 +37,12 @@ int main()
 
 	me->equip(tmp);
 
+	std::cout << "------------------------------ character assignment operator test" << std::endl;
+
 	Character* otherMe = new Character("otherMe");
+	std::cout << otherMe->getName() << std::endl;
 	*otherMe = *(Character*)me;
+	std::cout << otherMe->getName() << std::endl;
 
 	otherMe->use(0, *me);
 	otherMe->use(1, *me);
@@ -46,21 +50,27 @@ int main()
 
 	otherMe->equip(src->createMateria("ice"));
 	otherMe->equip(src->createMateria("cure"));
-	otherMe->equip(src->createMateria("ice"));
+	tmp = src->createMateria("ice");
+	otherMe->equip(tmp);
+	delete tmp;
 
-	std::cout << "here1" << std::endl;
+	std::cout << "------------equipment test" << std::endl;
 
 	otherMe->use(2, *me);
 	otherMe->use(3, *me);
 	otherMe->use(4, *me);
 
-	std::cout << "here2" << std::endl;
+	std::cout << "------------materiaSource assignment operator test" << std::endl;
 
 	MateriaSource* src2 = new MateriaSource;
 	*src2 = *(MateriaSource*)src;
+
+	tmp = otherMe->getMateria(3);
 	otherMe->unequip(3);
 	otherMe->use(3, *me);
-	tmp = src->createMateria("ice");
+	delete tmp;
+
+	tmp = src2->createMateria("ice");
 	otherMe->equip(tmp);
 	otherMe->use(3, *me);
 

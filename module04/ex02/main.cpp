@@ -32,6 +32,9 @@ int main()
 	vlc = new Squad;
 	vlc->push(bob);
 	vlc->push(jim);
+
+	std::cout << "-------------------" << std::endl;
+
 	std::cout << "assignment operator here:" << std::endl;
 	ISquad* vlc2 = new Squad;
 	*((Squad *)vlc2) = *((Squad *)vlc);
@@ -42,7 +45,24 @@ int main()
 		cur->rangedAttack();
 		cur->meleeAttack();
 	}
+
+	std::cout << "-------------------" << std::endl;
+
+	std::cout << "copy constructor here:" << std::endl;
+	ISquad* vlc3 = new Squad(*((Squad *)vlc2));
+	for (int i = 0; i < vlc3->getCount(); ++i)
+	{
+		ISpaceMarine* cur = vlc3->getUnit(i);
+		cur->battleCry();
+		cur->rangedAttack();
+		cur->meleeAttack();
+	}
+
+	std::cout << "-------------------" << std::endl;
+
 	delete vlc;
 	delete vlc2;
+	delete vlc3;
+
 	return 0;
 }

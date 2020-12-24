@@ -1,5 +1,5 @@
 CC = clang++
-CFLAGS = -c -Wall -Wextra -Werror -std=c++98
+CFLAGS = -c -g -Wall -Wextra -Werror -std=c++98
 MAIN_SOURCES = 	main.cpp AssaultTerminator.cpp Squad.cpp TacticalMarine.cpp
 NAME = a.out
 
