@@ -16,7 +16,6 @@ int main() {
 	}
 
 	std::cout << "--------------------" << std::endl;
-
 	try
 	{
 		Bureaucrat bureaucrat("Burman", 0);
@@ -27,7 +26,6 @@ int main() {
 	}
 
 	std::cout << "--------------------" << std::endl;
-
 	try
 	{
 		Bureaucrat bureaucrat("Burman", 2);
@@ -43,7 +41,6 @@ int main() {
 	}
 
 	std::cout << "--------------------" << std::endl;
-
 	try
 	{
 		Bureaucrat bureaucrat("Burman", 150);

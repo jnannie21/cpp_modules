@@ -3,6 +3,8 @@
 //
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
+#include <iostream>
 
 Bureaucrat::Bureaucrat() : _name("unnamed"), _grade(150) {
 
@@ -57,6 +59,16 @@ void Bureaucrat::decrement() {
 	this->_grade++;
 }
 
+void Bureaucrat::signForm(Form &form) const {
+	if (this->_grade <= form.getGradeToSign())
+	{
+		std::cout << this->_name << " signs " << form.getName() << std::endl;
+		form.beSigned(*this);
+	}
+	else
+		std::cout << this->_name << " cannot sign " << form.getName() << " because form grade is to high" << std::endl;
+}
+
 
 const char *Bureaucrat::GradeTooHighException::what() const throw() {
 	return ("grade is too high");
@@ -65,7 +77,6 @@ const char *Bureaucrat::GradeTooHighException::what() const throw() {
 const char *Bureaucrat::GradeTooLowException::what() const throw() {
 	return ("grade is too low");
 }
-
 
 std::ostream &operator<<(std::ostream &stream, Bureaucrat const &bureaucrat) {
 	stream << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
