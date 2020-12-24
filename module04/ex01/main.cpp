@@ -58,5 +58,19 @@ int main()
 	me->attack(c);
 	std::cout << *me;
 
+	std::cout << "-------------------------" << std::endl;
+
+	Character* me2 = new Character("me2");
+	std::cout << *me2;
+	*me2 = *me;
+	std::cout << *me2;
+
+	std::cout << "-------------------------" << std::endl;
+
+	delete pr;
+	delete pf;
+	delete me;
+	delete me2;
+
 	return 0;
 }
