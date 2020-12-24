@@ -6,12 +6,14 @@
 #define BUREAUCRAT_HPP
 
 #include <stdexcept>
+#include <ostream>
+#include <string>
 
 class Bureaucrat {
 public:
 	Bureaucrat();
 	Bureaucrat(Bureaucrat const &other);
-	Bureaucrat::Bureaucrat(std::string const &name, int grade) throw(GradeTooHighException, GradeTooLowException);
+	Bureaucrat(std::string const &name, int grade) throw(GradeTooHighException, GradeTooLowException);
 	~Bureaucrat();
 
 	Bureaucrat &operator=(Bureaucrat const &other);
@@ -37,5 +39,6 @@ private:
 
 };
 
+std::ostream &operator<<(std::ostream &stream, Bureaucrat const &bureaucrat);
 
 #endif //BUREAUCRAT_HPP
