@@ -13,7 +13,7 @@ Peon::Peon(std::string name) : Victim(name) {
 	std::cout << "Zog zog." << std::endl;
 }
 
-Peon::Peon(const Victim &other) : Victim(other) {
+Peon::Peon(const Peon &other) : Victim(other) {
 	std::cout << "Zog zog." << std::endl;
 }
 

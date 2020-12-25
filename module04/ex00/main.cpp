@@ -21,22 +21,23 @@ int main() {
 
 	std::cout << "---------------------------------" << std::endl;
 
+	Peon qwe("qwe");
+	std::cout << qwe;
+	qwe = joe;
+	std::cout << qwe;
+
+	std::cout << "---------------------------------" << std::endl;
+
+	Peon asd(joe);
+	std::cout << asd;
+
+	std::cout << "---------------------------------" << std::endl;
+
 	Peoon john("John");
 	std::cout << john;
 	robert.polymorph(john);
 
 	std::cout << "---------------------------------" << std::endl;
 
-	Peoon qwe("qwe");
-	std::cout << qwe;
-	qwe = john;
-	std::cout << qwe;
-
-	std::cout << "---------------------------------" << std::endl;
-
-	Peon asd(jim);
-	std::cout << asd;
-
-	std::cout << "---------------------------------" << std::endl;
 	return 0;
 }
