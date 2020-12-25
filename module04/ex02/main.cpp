@@ -33,8 +33,6 @@ int main()
 	vlc->push(bob);
 	vlc->push(jim);
 
-	std::cout << "-------------------" << std::endl;
-
 	std::cout << "assignment operator here:" << std::endl;
 	ISquad* vlc2 = new Squad;
 	*((Squad *)vlc2) = *((Squad *)vlc);

@@ -34,9 +34,6 @@ Squad &Squad::operator=(Squad const &other) {
 }
 
 Squad::~Squad() {
-	if (!this->_units)
-		return ;
-
 	for (int i = 0; i < this->_count; i++)
 		delete this->_units[i];
 	delete [] this->_units;
