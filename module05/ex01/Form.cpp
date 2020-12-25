@@ -15,10 +15,10 @@ Form::Form(std::string const &name, int gradeToSign, int gradeToExecute)
 	_gradeToSign(gradeToSign),
 	_gradeToExecute(gradeToExecute) {
 	if (this->_gradeToSign < 1 || this->_gradeToExecute < 1)
-		throw Form::GradeTooHighException();
+		throw GradeTooHighException();
 
 	if (this->_gradeToSign > 150 || this->_gradeToExecute > 150)
-		throw Form::GradeTooLowException();
+		throw GradeTooLowException();
 }
 
 Form::Form(Form const &other) :
