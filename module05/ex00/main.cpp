@@ -32,9 +32,9 @@ int main() {
 	{
 		Bureaucrat bureaucrat("Burman", 2);
 		std::cout << bureaucrat << std::endl;
-		bureaucrat.increment();
+		bureaucrat.incrementGrade();
 		std::cout << bureaucrat << std::endl;
-		bureaucrat.increment();
+		bureaucrat.incrementGrade();
 		std::cout << bureaucrat << std::endl;
 	}
 	catch (std::exception &e)
@@ -48,7 +48,7 @@ int main() {
 	{
 		Bureaucrat bureaucrat("Burman", 150);
 		std::cout << bureaucrat << std::endl;
-		bureaucrat.decrement();
+		bureaucrat.decrementGrade();
 	}
 	catch (std::exception &e)
 	{
