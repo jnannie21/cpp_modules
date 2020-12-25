@@ -15,10 +15,10 @@ Form::Form(std::string const &name, int gradeToSign, int gradeToExecute)
 	_gradeToSign(gradeToSign),
 	_gradeToExecute(gradeToExecute) {
 	if (this->_gradeToSign < 1 || this->_gradeToExecute < 1)
-		throw Bureaucrat::GradeTooHighException();
+		throw Form::GradeTooHighException();
 
 	if (this->_gradeToSign > 150 || this->_gradeToExecute > 150)
-		throw Bureaucrat::GradeTooLowException();
+		throw Form::GradeTooLowException();
 }
 
 Form::Form(Form const &other) :
@@ -52,25 +52,30 @@ int Form::getGradeToExecute() const {
 	return (this->_gradeToExecute);
 }
 
-void Form::beSigned(Bureaucrat const &bureaucrat) {
+void Form::beSigned(Bureaucrat const &bureaucrat) throw(GradeTooHighException) {
 	if (bureaucrat.getGrade() <= this->_gradeToSign)
 		this->_isSigned = true;
 	else
-		throw Form::GradeTooLowException();
+		throw GradeTooHighException();
+}
+
+bool Form::isSigned() const {
+	return (this->_isSigned);
 }
 
 
 const char *Form::GradeTooHighException::what() const throw() {
-	return ("grade is too high");
+	return ("form grade is too high");
 }
 
 const char *Form::GradeTooLowException::what() const throw() {
-	return ("grade is too low");
+	return ("form grade is too low");
 }
 
 std::ostream &operator<<(std::ostream &stream, Form const &form) {
 	stream << "form name: " << form.getName()
 		<< ", grade needed to sign: " << form.getGradeToSign()
-		<< "grade needed to execute: " << form.getGradeToExecute() << std::endl;
+		<< ", grade needed to execute: " << form.getGradeToExecute()
+		<< ", state: " << form.isSigned();
 	return (stream);
 }

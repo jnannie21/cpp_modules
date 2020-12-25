@@ -22,7 +22,8 @@ public:
 	std::string const &getName() const;
 	int getGradeToSign() const;
 	int getGradeToExecute() const;
-	void beSigned(Bureaucrat const &bureaucrat);
+	void beSigned(Bureaucrat const &bureaucrat) throw(GradeTooHighException);
+	bool isSigned() const;
 
 	class GradeTooHighException : public std::exception {
 	public:
@@ -42,7 +43,7 @@ private:
 
 };
 
-std::ostream &operator<<(std::ostream &stream, Bureaucrat const &bureaucrat);
+std::ostream &operator<<(std::ostream &stream, Form const &form);
 
 
 #endif //FORM_HPP

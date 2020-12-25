@@ -23,8 +23,8 @@ public:
 
 	std::string const &getName() const;
 	int getGrade() const;
-	void increment();
-	void decrement();
+	void incrementGrade();
+	void decrementGrade();
 	void signForm(Form &form) const;
 
 	class GradeTooHighException : public std::exception {
