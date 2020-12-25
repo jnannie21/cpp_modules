@@ -12,9 +12,8 @@ AMateria::AMateria(std::string const &type) : _type(type), _xp(0) {
 
 }
 
-AMateria::AMateria(AMateria const &other) {
-	this->_type = other._type;
-	this->_xp = other._xp;
+AMateria::AMateria(AMateria const &other) : _xp(other._xp) {
+
 }
 
 AMateria &AMateria::operator=(AMateria const &other) {
