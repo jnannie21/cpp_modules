@@ -14,6 +14,9 @@ SuperMutant::SuperMutant(SuperMutant const &other) : Enemy(other) {
 }
 
 SuperMutant &SuperMutant::operator=(SuperMutant const &other) {
+	if (this == &other)
+		return (*this);
+
 	Enemy::operator=(other);
 	return (*this);
 }

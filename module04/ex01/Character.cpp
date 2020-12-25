@@ -43,7 +43,7 @@ void Character::equip(AWeapon *weapon) {
 }
 
 void Character::attack(Enemy *enemy) {
-	if(this->_weapon)
+	if (this->_weapon)
 	{
 		if (this->_ap > this->_weapon->getApCost())
 		{

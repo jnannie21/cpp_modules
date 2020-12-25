@@ -9,6 +9,8 @@
 #include "SuperMutant.hpp"
 #include "PlasmaRifle.hpp"
 #include "PowerFist.hpp"
+#include "MachineGun.hpp"
+#include "Krang.hpp"
 #include <iostream>
 
 int main()
@@ -21,6 +23,7 @@ int main()
 
 	AWeapon* pr = new PlasmaRifle();
 	AWeapon* pf = new PowerFist();
+	AWeapon* mg = new MachineGun();
 
 	me->equip(pr);
 	std::cout << *me;
@@ -39,24 +42,26 @@ int main()
 
 	Enemy* c = new SuperMutant();
 
-	me->attack(c);
-	std::cout << *me;
-
-	me->equip(pf);
+	me->equip(mg);
 	std::cout << *me;
 	me->attack(c);
 	std::cout << *me;
-	me->attack(c);
-	std::cout << *me;
-	me->recoverAP();
-	me->attack(c);
-
-	me->attack(c);
 
 	std::cout << "enemy hp is " << c->getHp() << std::endl;
-	me->recoverAP();
+
 	me->attack(c);
 	std::cout << *me;
+
+	std::cout << "-------------------------" << std::endl;
+
+	Enemy* e = new Krang();
+	me->recoverAP();
+	me->recoverAP();
+	me->recoverAP();
+
+	me->attack(e);
+	me->attack(e);
+	me->attack(e);
 
 	std::cout << "-------------------------" << std::endl;
 
@@ -65,10 +70,9 @@ int main()
 	*me2 = *me;
 	std::cout << *me2;
 
-	std::cout << "-------------------------" << std::endl;
-
 	delete pr;
 	delete pf;
+	delete mg;
 	delete me;
 	delete me2;
 
