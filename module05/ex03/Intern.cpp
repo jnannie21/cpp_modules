@@ -49,7 +49,7 @@ Form *Intern::makeForm(std::string const &formName, std::string const &target) {
 		}
 	}
 	std::cout << "form " << formName << " not found" << std::endl;
-	return (NULL);
+	throw FormNotFoundException();
 }
 
 Form *Intern::makeShrubberyCreationForm(std::string const &target) {
@@ -62,4 +62,8 @@ Form *Intern::makeRobotomyRequestForm(std::string const &target) {
 
 Form *Intern::makePresidentialPardonForm(std::string const &target) {
 	return (new PresidentialPardonForm(target));
+}
+
+const char *Intern::FormNotFoundException::what() const throw() {
+	return ("form not found");
 }

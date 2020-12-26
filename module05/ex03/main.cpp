@@ -14,7 +14,22 @@ int main() {
 	{
 		Intern someRandomIntern;
 		Form* rrf;
+		rrf = someRandomIntern.makeForm("shrubbery creation", "hall");
+		std::cout << *rrf << std::endl;
+		delete rrf;
+
+		std::cout << std::endl;
+		rrf = someRandomIntern.makeForm("presidential pardon", "Joker");
+		std::cout << *rrf << std::endl;
+		delete rrf;
+
+		std::cout << std::endl;
 		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		std::cout << *rrf << std::endl;
+		delete rrf;
+
+		std::cout << std::endl;
+		rrf = someRandomIntern.makeForm("randomForm request", "randomTarget");
 		std::cout << *rrf << std::endl;
 		delete rrf;
 	}

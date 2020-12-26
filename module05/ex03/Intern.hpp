@@ -21,6 +21,11 @@ public:
 
 	static int const numberOfForms = 3;
 
+	class FormNotFoundException : public std::exception {
+	public:
+		virtual const char *what() const throw();
+	};
+
 private:
 	static Form *makeShrubberyCreationForm(std::string const &target);
 	static Form *makeRobotomyRequestForm(std::string const &target);
