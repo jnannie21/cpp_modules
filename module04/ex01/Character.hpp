@@ -20,7 +20,7 @@ public:
 	Character(std::string const & name);
 	Character(Character const &other);
 	Character &operator=(Character const &other);
-	~Character();
+	virtual ~Character();
 
 	void recoverAP();
 	void equip(AWeapon *weapon);
