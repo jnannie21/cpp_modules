@@ -4,6 +4,7 @@
 
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
+#include <iostream>
 
 ShrubberyCreationForm::ShrubberyCreationForm() {
 
@@ -32,15 +33,13 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target)
 	this->setTarget(target);
 }
 
-void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
-	throw(NotSignedException, GradeTooHighException) {
-	if (!this->isSigned())
-		throw NotSignedException();
-
-	if (executor.getGrade() > this->getGradeToExecute())
-		throw GradeTooHighException();
-
+void ShrubberyCreationForm::executeConcrete() const {
 	std::ofstream outfile((this->getTarget() + "_shrubbery").c_str());
+	if (!outfile)
+	{
+		std::cout << "file open error" << std::endl;
+		return ;
+	}
 
 	outfile << "root" << std::endl;
 	outfile << "+-- dir1" << std::endl;
@@ -52,9 +51,6 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	outfile << "        +-- file4" << std::endl;
 	outfile << "+-- file5" << std::endl;
 
+	std::cout << "file " << this->getTarget() + "_shrubbery is created" << std::endl;
 	outfile.close();
-}
-
-const char *ShrubberyCreationForm::NotSignedException::what() const throw() {
-	return ("ShrubberyCreationForm not signed");
 }

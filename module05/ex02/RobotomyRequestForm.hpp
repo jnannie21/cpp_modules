@@ -19,13 +19,7 @@ public:
 	RobotomyRequestForm(std::string const &target)
 		throw(GradeTooHighException, GradeTooLowException);
 
-	virtual void execute(Bureaucrat const &executor) const
-		throw(NotSignedException, GradeTooHighException);
-
-	class NotSignedException : public std::exception {
-	public:
-		virtual const char *what() const throw();
-	};
+	virtual void executeConcrete() const;
 
 };
 

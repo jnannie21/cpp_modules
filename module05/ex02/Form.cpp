@@ -47,7 +47,7 @@ std::string const &Form::getName() const {
 	return (this->_name);
 }
 
-int Form::getGradeToSign() const{
+int Form::getGradeToSign() const {
 	return (this->_gradeToSign);
 }
 
@@ -74,6 +74,22 @@ std::string const &Form::getTarget() const {
 	return (this->_target);
 }
 
+void Form::checkBeforeExecute(Bureaucrat const &executor) const
+	throw(NotSignedException, GradeTooHighException) {
+	if (!this->isSigned())
+		throw NotSignedException();
+
+	if (executor.getGrade() > this->getGradeToExecute())
+		throw GradeTooHighException();
+}
+
+void Form::execute(Bureaucrat const &executor) const
+	throw(NotSignedException, GradeTooHighException) {
+	this->checkBeforeExecute(executor);
+
+	this->executeConcrete();
+}
+
 
 const char *Form::GradeTooHighException::what() const throw() {
 	return ("form grade is too high");
@@ -83,11 +99,20 @@ const char *Form::GradeTooLowException::what() const throw() {
 	return ("form grade is too low");
 }
 
+const char *Form::NotSignedException::what() const throw() {
+	return ("form not signed");
+}
+
 std::ostream &operator<<(std::ostream &stream, Form const &form) {
+	std::string state;
+	if (form.isSigned())
+		state = "signed";
+	else
+		state = "not signed";
 	stream << "form name: " << form.getName()
 		<< ", grade needed to sign: " << form.getGradeToSign()
 		<< ", grade needed to execute: " << form.getGradeToExecute()
 		<< ", target: " << form.getTarget()
-		<< ", state: " << form.isSigned();
+		<< ", state: " << state;
 	return (stream);
 }

@@ -27,7 +27,11 @@ public:
 	std::string const &getTarget() const;
 	void setTarget(std::string const &target);
 
-	virtual void execute(Bureaucrat const & executor) const = 0;
+	virtual void checkBeforeExecute(Bureaucrat const &executor) const
+	throw(NotSignedException, GradeTooHighException);
+	virtual void execute(Bureaucrat const &executor) const
+		throw(NotSignedException, GradeTooHighException);
+	virtual void executeConcrete() const = 0;
 
 	class GradeTooHighException : public std::exception {
 	public:
@@ -35,6 +39,11 @@ public:
 	};
 
 	class GradeTooLowException : public std::exception {
+	public:
+		virtual const char *what() const throw();
+	};
+
+	class NotSignedException : public std::exception {
 	public:
 		virtual const char *what() const throw();
 	};

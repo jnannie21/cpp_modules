@@ -32,18 +32,8 @@ RobotomyRequestForm::RobotomyRequestForm(std::string const &target)
 	this->setTarget(target);
 }
 
-void RobotomyRequestForm::execute(Bureaucrat const &executor) const
-	throw(NotSignedException, GradeTooHighException) {
-	if (!this->isSigned())
-		throw NotSignedException();
-
-	if (executor.getGrade() > this->getGradeToExecute())
-		throw GradeTooHighException();
-
+void RobotomyRequestForm::executeConcrete() const {
 	std::cout << "* drilling noises * " << this->getTarget()
 			  << " has been robotomized successfully 50% of the time" << std::endl;
 }
 
-const char *RobotomyRequestForm::NotSignedException::what() const throw() {
-	return ("RobotomyRequestForm not signed");
-}
