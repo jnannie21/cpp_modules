@@ -14,7 +14,7 @@ public:
 	RobotomyRequestForm();
 	RobotomyRequestForm(RobotomyRequestForm const &other);
 	RobotomyRequestForm &operator=(RobotomyRequestForm const &other);
-	~RobotomyRequestForm();
+	virtual ~RobotomyRequestForm();
 
 	RobotomyRequestForm(std::string const &target)
 		throw(GradeTooHighException, GradeTooLowException);

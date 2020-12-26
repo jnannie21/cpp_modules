@@ -13,7 +13,7 @@ public:
 	Intern();
 	Intern(Intern const &other);
 	Intern &operator=(Intern const &other);
-	~Intern();
+	virtual ~Intern();
 
 	static Form *makeForm(std::string const &formName, std::string const &target);
 

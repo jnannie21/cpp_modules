@@ -17,7 +17,7 @@ public:
 	Bureaucrat(Bureaucrat const &other);
 	Bureaucrat(std::string const &name, int grade)
 		throw(GradeTooHighException, GradeTooLowException);
-	~Bureaucrat();
+	virtual ~Bureaucrat();
 
 	Bureaucrat &operator=(Bureaucrat const &other);
 

@@ -13,7 +13,7 @@ public:
 	PresidentialPardonForm();
 	PresidentialPardonForm(PresidentialPardonForm const &other);
 	PresidentialPardonForm &operator=(PresidentialPardonForm const &other);
-	~PresidentialPardonForm();
+	virtual ~PresidentialPardonForm();
 
 	PresidentialPardonForm(std::string const &target)
 	throw(GradeTooHighException, GradeTooLowException);

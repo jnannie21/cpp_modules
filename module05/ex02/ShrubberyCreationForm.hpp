@@ -14,7 +14,7 @@ public:
 	ShrubberyCreationForm();
 	ShrubberyCreationForm(ShrubberyCreationForm const &other);
 	ShrubberyCreationForm &operator=(ShrubberyCreationForm const &other);
-	~ShrubberyCreationForm();
+	virtual ~ShrubberyCreationForm();
 
 	ShrubberyCreationForm(std::string const &target)
 		throw(GradeTooHighException, GradeTooLowException);

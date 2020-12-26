@@ -48,7 +48,7 @@ Form *Intern::makeForm(std::string const &formName, std::string const &target) {
 			return (form);
 		}
 	}
-	std::cout << "form " << formName << " not found" << std::endl;
+	std::cout << formName << " not found" << std::endl;
 	throw FormNotFoundException();
 }
 
