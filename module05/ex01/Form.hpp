@@ -22,7 +22,7 @@ public:
 	std::string const &getName() const;
 	int getGradeToSign() const;
 	int getGradeToExecute() const;
-	void beSigned(Bureaucrat const &bureaucrat) throw(GradeTooHighException);
+	void beSigned(Bureaucrat const &bureaucrat) throw(GradeTooLowException);
 	bool isSigned() const;
 
 	class GradeTooHighException : public std::exception {
