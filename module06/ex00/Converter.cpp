@@ -65,6 +65,9 @@ void Converter::_parse() throw(ConvertionNotPossibleException, OutOfRangeExcepti
 
 	size_t length = _stringValue.length();
 
+	if (!std::isprint(_stringValue[0]) || std::isspace(_stringValue[0]))
+		throw ConvertionNotPossibleException();
+
 	// ******************************************* char
 	if (length == 1 && !std::isdigit(_stringValue[0]))
 	{
@@ -95,6 +98,9 @@ void Converter::_parse() throw(ConvertionNotPossibleException, OutOfRangeExcepti
 	// ******************************************* float
 	if (_stringValue.find('f') != std::string::npos)
 	{
+		size_t pos = _stringValue.find('.');
+		if (!isdigit(_stringValue[pos + 1]))
+			throw ConvertionNotPossibleException();
 		if (*(endptr + 1) != '\0')
 			throw ConvertionNotPossibleException();
 		if (tempDouble > std::numeric_limits<float>::max() || tempDouble < std::numeric_limits<float>::lowest())
@@ -108,7 +114,7 @@ void Converter::_parse() throw(ConvertionNotPossibleException, OutOfRangeExcepti
 	size_t pos = 0;
 	if ((pos = _stringValue.find('.')) != std::string::npos)
 	{
-		if (_stringValue[pos + 1] == '\0')
+		if (!isdigit(_stringValue[pos + 1]))
 			throw ConvertionNotPossibleException();
 		if (*endptr != '\0')
 			throw ConvertionNotPossibleException();
@@ -155,7 +161,7 @@ void Converter::_countDecimals() {
 }
 
 void Converter::_printChar() {
-	if (std::isprint(_charValue))
+	if (std::isprint(_charValue) && !std::isspace(_charValue))
 		std::cout << "char: " << _charValue << std::endl;
 	else
 		std::cout << "char: " << "Non displayable" << std::endl;
