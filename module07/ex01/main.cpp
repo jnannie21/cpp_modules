@@ -7,15 +7,15 @@
 
 
 struct Data {
-	std::string s1;
+	std::string s;
 };
 
-void doubleInt(int &i) {
-	i *= 2;
+void doubleInt(int const &i) {
+	std::cout << i * 2 << " ";
 }
 
-void changeData(Data &el) {
-	el.s1 += "!!!";
+void printData(Data const &el) {
+	std::cout << el.s << " ";
 }
 
 int main(void) {
@@ -23,10 +23,10 @@ int main(void) {
 	Data dataArr[] = {{"hello"}, {"hi"}, {"privet"}};
 
 	iter(intArr, 3, doubleInt);
-	std::cout << intArr[0] << " " << intArr[1] << " " << intArr[2] << std::endl;
+	std::cout << std::endl;
 
-	iter(dataArr, 3, changeData);
-	std::cout << dataArr[0].s1 << " " << dataArr[1].s1 << " " << dataArr[2].s1 << std::endl;
+	iter(dataArr, 3, printData);
+	std::cout << std::endl;
 
 	return 0;
 }
