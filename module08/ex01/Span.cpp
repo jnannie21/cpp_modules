@@ -3,6 +3,10 @@
 //
 
 #include "Span.hpp"
+#include <vector>
+#include <algorithm>
+#include <time.h>
+#include <stdlib.h>
 
 Span::Span() {
 
@@ -26,9 +30,11 @@ Span::~Span() {
 
 }
 
-Span::Span(unsigned int limit) throw(TooFewElementsException) {
+Span::Span(unsigned int limit) throw(TooFewElementsException, LimitIsTooHighException) {
 	if (limit < 2)
 		throw TooFewElementsException();
+	if (limit > _set.max_size())
+		throw LimitIsTooHighException();
 	_limit = limit;
 }
 
@@ -64,10 +70,25 @@ unsigned int Span::longestSpan() const throw(TooFewElementsException) {
 	return (std::abs(*last - *_set.begin()));
 }
 
+void Span::generate(void) {
+	std::vector<int> vec(_limit, 0);
+
+	srand(time(NULL));
+
+	std::generate(vec.begin(), vec.end(), rand);
+
+	_set.clear();
+	_set.insert(vec.begin(), vec.end());
+}
+
 const char *Span::SetIsFullException::what() const throw() {
 	return ("set is full");
 }
 
 const char *Span::TooFewElementsException::what() const throw() {
 	return ("too few elements in set");
+}
+
+const char *Span::LimitIsTooHighException::what() const throw() {
+	return ("limit is too high");
 }
