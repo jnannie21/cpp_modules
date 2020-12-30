@@ -1,6 +1,6 @@
 CC = clang++
 CFLAGS = -c -Wall -Wextra -Werror -std=c++98
-MAIN_SOURCES = 	main.cpp Span.cpp
+MAIN_SOURCES = 	main.cpp span.cpp
 NAME = a.out
 
 OBJECTS = $(MAIN_SOURCES:.cpp=.o)

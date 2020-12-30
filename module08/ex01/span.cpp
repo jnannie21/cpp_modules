@@ -2,7 +2,7 @@
 // Created by jnannie on 12/28/20.
 //
 
-#include "Span.hpp"
+#include "span.hpp"
 #include <vector>
 #include <algorithm>
 #include <time.h>
